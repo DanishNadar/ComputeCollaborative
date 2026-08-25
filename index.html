@@ -1,0 +1,1241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Compute Collaborative — Illinois Tech</title>
+<meta name="description" content="A governed, student-administered GPU suite hosted in the Illinois Tech Smart Lab. Compute infrastructure for the AI era — built by students, for students, open to partners." />
+<meta name="author" content="The Compute Collaborative — Illinois Institute of Technology" />
+<meta property="og:title" content="The Compute Collaborative — Illinois Tech" />
+<meta property="og:description" content="Compute is the new currency. Illinois Tech students are ready to build, govern, and operate the infrastructure. We need the hardware." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#04060d" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/core.css">
+<link rel="stylesheet" href="assets/sections.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%2304060d'/><rect x='22' y='22' width='56' height='56' rx='7' fill='none' stroke='%2300E5FF' stroke-width='5'/><rect x='40' y='40' width='20' height='20' rx='2' fill='%23E4002B'/></svg>" />
+</head>
+<body>
+
+<!-- ============ AMBIENT LAYERS ============ -->
+<canvas id="bgCanvas"></canvas>
+<div class="bg-grid"></div>
+<div class="bg-aurora"></div>
+<div class="bg-scan"></div>
+<div class="bg-noise"></div>
+<div id="progress"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand">
+      <svg width="30" height="30" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <rect x="18" y="18" width="64" height="64" rx="8" stroke="#00E5FF" stroke-width="4"/>
+        <rect x="38" y="38" width="24" height="24" rx="3" fill="#E4002B"/>
+        <path d="M50 4v14M50 82v14M4 50h14M82 50h14M24 10l6 10M76 10l-6 10M24 90l6-10M76 90l-6-10" stroke="#00E5FF" stroke-width="3.5" stroke-linecap="round" opacity=".8"/>
+      </svg>
+      <span>The Compute Collaborative<small>Illinois Tech</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#problem">Problem</a>
+      <a href="#proposal">Proposal</a>
+      <a href="#workloads">Workloads</a>
+      <a href="#hardware">Hardware</a>
+      <a href="#economics">Economics</a>
+      <a href="#impact">Impact</a>
+      <a href="#partners">Partners</a>
+      <a href="#references">References</a>
+      <a href="#ask" class="nav-cta">The Ask</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-badge rv"><span class="pulse-dot"></span> Smart Lab hosted · Student administered · Cross-organization</div>
+      <h1 class="rv">
+        <span class="line1">Illinois Tech</span>
+        <span class="big">The Compute<br>Collaborative</span>
+      </h1>
+      <p class="hero-lede rv">
+        A <b>governed GPU suite</b> in the Illinois Tech Smart Lab — operated as transparent,
+        logged, shared infrastructure for <b>ML@IIT, Illinois Tech Robotics, ACM, Codify, and IGDA</b>.
+        Research prototypes. Workshops. Hackathons. Startups.
+      </p>
+      <p class="hero-lede rv">
+        The bottleneck is no longer student ambition or skill.
+        <b class="hl-rd">It is access to reliable, capable compute.</b>
+      </p>
+      <div class="hero-actions rv">
+        <a href="#ask" class="btn btn-primary">Fund the pilot &#8594;</a>
+        <a href="#partners" class="btn">Partner with us</a>
+        <a href="#economics" class="btn btn-ghost">Run the numbers</a>
+      </div>
+      <div class="hero-stats rv">
+        <div><div class="n" data-count="48" data-suf=" GB">0</div><div class="l">Pilot VRAM</div></div>
+        <div><div class="n" data-count="96" data-suf=" GB">0</div><div class="l">Target VRAM</div></div>
+        <div><div class="n" data-count="5">0</div><div class="l">Founding orgs</div></div>
+        <div><div class="n" data-count="11" data-pre="$" data-suf="K">0</div><div class="l">Pilot capex</div></div>
+      </div>
+    </div>
+
+    <!-- Animated GPU core -->
+    <div class="hero-art rv" aria-hidden="true">
+      <div class="halo"></div>
+      <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+      <div class="orbit"><i></i></div>
+      <div class="orbit o2"><i></i></div>
+      <div class="orbit o3"><i></i></div>
+      <div class="die">
+        <svg viewBox="0 0 200 200" fill="none">
+          <defs>
+            <linearGradient id="dieG" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#0e2233"/><stop offset="100%" stop-color="#08111d"/>
+            </linearGradient>
+            <linearGradient id="edgeG" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00E5FF"/><stop offset="100%" stop-color="#E4002B"/>
+            </linearGradient>
+          </defs>
+          <!-- pins -->
+          <g stroke="#00E5FF" stroke-width="3" stroke-linecap="round" opacity=".55">
+            <path d="M60 22v-16M84 22v-16M116 22v-16M140 22v-16"/>
+            <path d="M60 178v16M84 178v16M116 178v16M140 178v16"/>
+            <path d="M22 60h-16M22 84h-16M22 116h-16M22 140h-16"/>
+            <path d="M178 60h16M178 84h16M178 116h16M178 140h16"/>
+          </g>
+          <rect x="24" y="24" width="152" height="152" rx="12" fill="url(#dieG)" stroke="url(#edgeG)" stroke-width="2.5"/>
+          <!-- inner traces -->
+          <g stroke="#00E5FF" stroke-width="1.2" opacity=".35">
+            <path d="M44 44h32v18h26M156 44h-30v26h-24M44 156h36v-24h22M156 156h-34v-20h-20"/>
+          </g>
+          <rect x="62" y="62" width="76" height="76" rx="7" fill="#04060d" stroke="#00E5FF" stroke-width="1.6" opacity=".9"/>
+          <!-- SM grid -->
+          <g fill="#E4002B">
+            <rect x="72" y="72" width="12" height="12" rx="2"><animate attributeName="opacity" values="1;.25;1" dur="2.4s" repeatCount="indefinite"/></rect>
+            <rect x="90" y="72" width="12" height="12" rx="2" opacity=".55"><animate attributeName="opacity" values=".3;1;.3" dur="3.1s" repeatCount="indefinite"/></rect>
+            <rect x="108" y="72" width="12" height="12" rx="2" opacity=".8"><animate attributeName="opacity" values="1;.3;1" dur="2.8s" repeatCount="indefinite"/></rect>
+            <rect x="72" y="90" width="12" height="12" rx="2" opacity=".6"><animate attributeName="opacity" values=".4;1;.4" dur="3.5s" repeatCount="indefinite"/></rect>
+            <rect x="108" y="90" width="12" height="12" rx="2" opacity=".7"><animate attributeName="opacity" values="1;.35;1" dur="2.1s" repeatCount="indefinite"/></rect>
+            <rect x="72" y="108" width="12" height="12" rx="2" opacity=".75"><animate attributeName="opacity" values=".35;1;.35" dur="2.9s" repeatCount="indefinite"/></rect>
+            <rect x="90" y="108" width="12" height="12" rx="2" opacity=".5"><animate attributeName="opacity" values="1;.4;1" dur="3.3s" repeatCount="indefinite"/></rect>
+            <rect x="108" y="108" width="12" height="12" rx="2"><animate attributeName="opacity" values=".3;1;.3" dur="2.6s" repeatCount="indefinite"/></rect>
+          </g>
+          <rect x="90" y="90" width="12" height="12" rx="2" fill="#76B900">
+            <animate attributeName="opacity" values="1;.4;1" dur="1.6s" repeatCount="indefinite"/>
+          </rect>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-in">
+    <span><b>Text-to-Video</b></span><span><b>Local LLMs</b></span><span><b>Robotics RL</b></span>
+    <span><b>Live Avatars</b></span><span><b>Diffusion</b></span><span><b>AR / VR</b></span>
+    <span><b>Voice Cloning</b></span><span><b>Computer Vision</b></span><span><b>Hackathons</b></span>
+    <span><b>Text-to-Video</b></span><span><b>Local LLMs</b></span><span><b>Robotics RL</b></span>
+    <span><b>Live Avatars</b></span><span><b>Diffusion</b></span><span><b>AR / VR</b></span>
+    <span><b>Voice Cloning</b></span><span><b>Computer Vision</b></span><span><b>Hackathons</b></span>
+  </div>
+</div>
+
+<!-- ============ PROBLEM / COMPUTE DIVIDE ============ -->
+<section id="problem">
+  <div class="rule"></div>
+  <div class="wrap">
+    <div class="kicker k-red rv">01 — The Purpose</div>
+    <h2 class="sec-title grad-rd rv">The compute divide is<br>already inside the university.</h2>
+    <p class="sec-sub rv">
+      Industry-level projects in the AI era require GPUs because they process thousands of tensor operations
+      in parallel — exactly what modern AI models, simulation, rendering, and computer vision demand.
+      Meanwhile, the gap between what students are taught and what students can actually run has become structural.
+    </p>
+
+    <div class="g4" style="margin-bottom:2.2rem">
+      <div class="panel metric rv brk"><div class="acc acc-rd"></div>
+        <div class="n grad-rd" data-count="90" data-suf="%">0</div>
+        <div class="l">Industry share</div>
+        <p>Over 90% of notable AI models now come from industry rather than academia.</p>
+        <cite>Stanford HAI · AI Index 2026</cite>
+      </div>
+      <div class="panel metric rv brk"><div class="acc acc-am"></div>
+        <div class="n grad-am" data-count="0.1" data-dec="1">0</div>
+        <div class="l">GPUs per person</div>
+        <p>Caltech, MIT, and UC Berkeley sit below 0.1 GPUs per person. Stanford is near 0.14.</p>
+        <cite>Academic compute reporting, 2025–26</cite>
+      </div>
+      <div class="panel metric rv brk"><div class="acc acc-cy"></div>
+        <div class="n grad-cy" data-count="68" data-suf="%">0</div>
+        <div class="l">Of AI publications</div>
+        <p>Academia still produces 68% of global AI computer-science publications — with a fraction of the hardware.</p>
+        <cite>Stanford HAI · AI Index 2026</cite>
+      </div>
+      <div class="panel metric rv brk"><div class="acc acc-vt"></div>
+        <div class="n grad-vt" data-count="87" data-suf="%">0</div>
+        <div class="l">Compute concentration</div>
+        <p>High-income countries account for 87% of notable model production and 91% of AI startup funding.</p>
+        <cite>Stanford HAI · AI Index 2026</cite>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="rv">
+        <div class="panel pad">
+          <div class="numrow">
+            <div class="numbox" style="background:linear-gradient(135deg,#4da3ff,#1f6fd0)">1</div>
+            <div>
+              <h4>Modern student work is compute-heavy</h4>
+              <p>AI video, image generation, local LLMs, robotics perception, 3D simulation, and AR/VR
+              exceed laptop limits within minutes of a project becoming serious.</p>
+            </div>
+          </div>
+          <div class="numrow">
+            <div class="numbox" style="background:linear-gradient(135deg,#ff4d6d,#c8102e)">2</div>
+            <div>
+              <h4>Compute access is a recruitment signal</h4>
+              <p>An accessible GPU suite tells prospective computing majors — and their parents — that
+              Illinois Tech students build on essential infrastructure, not around its absence.</p>
+            </div>
+          </div>
+          <div class="numrow">
+            <div class="numbox" style="background:linear-gradient(135deg,#5fe3a1,#1f9c63)">3</div>
+            <div>
+              <h4>Shared access beats isolated purchases</h4>
+              <p>One governed cluster serves many organizations instead of producing five one-off
+              hardware silos that sit idle in five different closets.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rv">
+        <div class="callout" style="margin-bottom:1.2rem">
+          &#8220;In the AI race, compute capacity is becoming as strategically important as the models themselves.&#8221;
+          <div class="mono dimmer" style="font-size:.72rem;margin-top:.8rem;letter-spacing:.1em">AXIOS · MAY 2026</div>
+        </div>
+        <div class="panel pad">
+          <h4 style="color:#fff;margin-bottom:.8rem;font-size:1.05rem">What a student actually hits</h4>
+          <p class="dim" style="font-size:.92rem">
+            A laptop RTX with 8&nbsp;GB of VRAM runs a 7B language model, slowly. It cannot fine-tune one.
+            It cannot generate a 720p video clip. It cannot hold a robotics simulation with visual sensors
+            and a policy network at the same time. It cannot serve a model to a room of twenty workshop attendees.
+          </p>
+          <p class="dim" style="font-size:.92rem;margin-bottom:0">
+            The student does not lack the skill. The student lacks <b class="hl-cy">memory bandwidth and VRAM</b> —
+            and those are purchasable.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPUTE IS CURRENCY ============ -->
+<section id="currency" style="background:linear-gradient(180deg,transparent,rgba(0,229,255,.028),transparent)">
+  <div class="rule"></div>
+  <div class="wrap">
+    <div class="kicker k-violet rv">02 — The Thesis</div>
+    <h2 class="sec-title grad-cy rv">Compute is the new currency.</h2>
+    <p class="sec-sub rv">
+      This is not a student opinion. It is the stated position of the people who build, finance,
+      and report on the AI economy.
+    </p>
+
+    <div class="g3">
+      <a href="https://www.morganstanley.com/insights/articles/nvidia-jensen-huang-compute-new-economic-engine-tmt-2026" target="_blank" rel="noopener" class="panel quote rv brk" style="color:inherit">
+        <div class="acc acc-vt"></div>
+        <div class="q">Compute is the new economy.</div>
+        <ul><li>Compute directly translates into intelligence, revenue, and GDP.</li></ul>
+        <footer><strong>Jensen Huang</strong><span>Founder &amp; CEO, NVIDIA · via Morgan Stanley &#8599;</span></footer>
+      </a>
+      <a href="https://www.linkedin.com/pulse/compute-currency-now-pedro-alves-crwkc/" target="_blank" rel="noopener" class="panel quote rv brk" style="color:inherit">
+        <div class="acc acc-cy"></div>
+        <div class="q">Compute is the currency now.</div>
+        <ul>
+          <li>The hyperscalers just rewrote the economics of frontier AI.</li>
+          <li>The number that actually matters is gigawatts.</li>
+          <li>Capital is necessary but not sufficient.</li>
+        </ul>
+        <footer><strong>Pedro Alves</strong><span>CTO, Thoth AI &#8599;</span></footer>
+      </a>
+      <a href="https://www.axios.com/2026/05/08/ai-economy-currency-how-it-works" target="_blank" rel="noopener" class="panel quote rv brk" style="color:inherit">
+        <div class="acc acc-rd"></div>
+        <div class="q">Compute is the currency of the AI economy.</div>
+        <ul>
+          <li>Accelerator chips like NVIDIA GPUs sit at the centre of AI processing.</li>
+          <li>Compute capacity is becoming as strategically important as the models themselves.</li>
+        </ul>
+        <footer><strong>Rebecca Falconer</strong><span>Axios · May 2026 &#8599;</span></footer>
+      </a>
+    </div>
+
+    <div class="callout cy rv" style="margin-top:1.6rem">
+      If compute is the currency, then a university without student compute access is asking its students
+      to compete in an economy they have no way to enter.
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROPOSAL ============ -->
+<section id="proposal">
+  <div class="rule"></div>
+  <div class="wrap">
+    <div class="kicker rv">03 — The Proposal</div>
+    <h2 class="sec-title rv">Install a GPU suite in the Smart Lab.<br><span class="grad-cy">Operate it like infrastructure.</span></h2>
+    <p class="sec-sub rv">
+      Not a club purchase. A transparent, logged, managed resource for approved student projects and
+      workshops — with a real governance model attached before a single card is ordered.
+    </p>
+
+    <div class="g3" style="margin-bottom:1.5rem">
+      <div class="panel pad rv brk"><div class="acc acc-vt"></div>
+        <div class="kicker k-volt" style="margin-bottom:.8rem">Host</div>
+        <h3 class="sub-title">Smart Lab</h3>
+        <p class="dim" style="font-size:.93rem;margin:0">
+          We have already spoken with <b>Professor Jeremy Hajek</b>, Smart Lab Director, and the Smart Lab
+          is comfortable with us installing a GPU cluster/suite. The hosting pathway exists —
+          this proposal is about hardware, not about finding a room.
+        </p>
+        <div class="chips" style="margin-top:1rem">
+          <a class="chip chip-vt" href="https://www.iit.edu/smartlab" target="_blank" rel="noopener">Smart Tech Lab &#8599;</a>
+          <a class="chip" href="https://www.iit.edu/directory/people/jeremy-hajek" target="_blank" rel="noopener">Prof. Hajek &#8599;</a>
+        </div>
+      </div>
+      <div class="panel pad rv brk"><div class="acc acc-rd"></div>
+        <div class="kicker k-red" style="margin-bottom:.8rem">Access</div>
+        <h3 class="sub-title">VPN &#8594; SSH</h3>
+        <p class="dim" style="font-size:.93rem;margin:0">
+          Students connect through approved Illinois Tech network controls. Access is
+          <b>individual, logged, and revocable</b> — every job is attributable to a named user who
+          signed a usage policy. No shared credentials, no anonymous compute.
+        </p>
+      </div>
+      <div class="panel pad rv brk"><div class="acc acc-cy"></div>
+        <div class="kicker" style="margin-bottom:.8rem">Administration</div>
+        <h3 class="sub-title">Student admins</h3>
+        <p class="dim" style="font-size:.93rem;margin:0">
+          Student technical administrators handle setup, documentation, maintenance, and onboarding
+          under Smart Lab oversight — with a defined succession path so the system outlives any
+          single graduating class.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout rv">
+      This gives Illinois Tech a <span class="hl-cy">student-facing computing solution</span> —
+      not another club purchase for one organization to use exclusively.
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARCHITECTURE ============ -->
+<section id="architecture" style="background:linear-gradient(180deg,transparent,rgba(228,0,43,.03),transparent)">
+  <div class="rule"></div>
+  <div class="wrap">
+    <div class="kicker k-amber rv">04 — The Architecture</div>
+    <h2 class="sec-title rv">Students bring ideas and skill.<br><span class="grad-am">The system handles access, compute, and accountability.</span></h2>
+    <p class="sec-sub rv">Five stages, one accountability layer. Designed so that "who ran what, when, and for how long" is always answerable.</p>
+
+    <div class="flow rv">
+      <div class="panel node brk"><div class="acc acc-vt"></div>
+        <div class="step">STAGE 01</div>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#76B900" stroke-width="2" stroke-linecap="round"><path d="M12 11a4 4 0 100-8 4 4 0 000 8zM4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1"/></svg></div>
+        <h4>Approved user</h4>
+        <p>Student signs the usage policy and receives individual credentials.</p>
+        <div class="flow-arrow"></div>
+      </div>
+      <div class="panel node brk"><div class="acc acc-cy"></div>
+        <div class="step">STAGE 02</div>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>VPN</h4>
+        <p>Access passes through approved Illinois Tech network controls.</p>
+        <div class="flow-arrow"></div>
+      </div>
+      <div class="panel node brk"><div class="acc acc-vi"></div>
+        <div class="step">STAGE 03</div>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A66BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-5-6-5M12 19h8"/></svg></div>
+        <h4>SSH</h4>
+        <p>Students connect to the compute environment remotely, from anywhere.</p>
+        <div class="flow-arrow"></div>
+      </div>
+      <div class="panel node brk"><div class="acc acc-am"></div>
+        <div class="step">STAGE 04</div>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFC400" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h10"/><circle cx="19" cy="18" r="2"/></svg></div>
+        <h4>Queue &amp; quota</h4>
+        <p>Jobs are scheduled by script so no single user can monopolize the suite.</p>
+        <div class="flow-arrow"></div>
+      </div>
+      <div class="panel node brk"><div class="acc acc-rd"></div>
+        <div class="step">STAGE 05</div>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E4002B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 1-4.5 4.3L18 20l-6-3-6 3 1.5-6.7L3 9l6-1z"/></svg></div>
+        <h4>Succession</h4>
+        <p>Future executive admins inherit documentation and operating procedures.</p>
+      </div>
+    </div>
+
+    <div class="admin-bar rv">
+      <b>ADMINISTRATION LAYER</b> &nbsp;/&nbsp; Documentation &nbsp;+&nbsp; Onboarding &nbsp;+&nbsp; Logs
+      &nbsp;+&nbsp; Storage limits &nbsp;+&nbsp; Monthly usage report &nbsp;+&nbsp; Maintenance
+    </div>
+
+    <div class="g3 rv" style="margin-top:1.6rem">
+      <div class="panel pad">
+        <div class="kicker k-mint" style="margin-bottom:.7rem">Precedent</div>
+        <p class="dim" style="font-size:.9rem;margin:0">Campus GPU sharing is a studied problem with published architectures — we are not inventing governance from scratch.</p>
+        <div class="chips" style="margin-top:.9rem">
+          <a class="chip chip-cy" href="https://arxiv.org/abs/2507.18928" target="_blank" rel="noopener">GPUnion: campus GPU sharing &#8599;</a>
+          <a class="chip chip-cy" href="https://www.usenix.org/conference/nsdi23/presentation/wu" target="_blank" rel="noopener">USENIX NSDI '23 &#8599;</a>
+        </div>
+      </div>
+      <div class="panel pad">
+        <div class="kicker k-mint" style="margin-bottom:.7rem">Scheduling</div>
+        <p class="dim" style="font-size:.9rem;margin:0">Mature open-source schedulers already solve queueing, fair-share, and quota enforcement for exactly this workload shape.</p>
+        <div class="chips" style="margin-top:.9rem">
+          <a class="chip" href="https://slurm.schedmd.com/documentation.html" target="_blank" rel="noopener">Slurm &#8599;</a>
+          <a class="chip" href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html" target="_blank" rel="noopener">NVIDIA Container Toolkit &#8599;</a>
+        </div>
+      </div>
+      <div class="panel pad">
+        <div class="kicker k-mint" style="margin-bottom:.7rem">Accountability</div>
+        <p class="dim" style="font-size:.9rem;margin:0">Per-user job logs, storage caps, and a monthly usage report delivered to the Smart Lab and the funding body. Transparency is the product.</p>
+        <div class="chips" style="margin-top:.9rem">
+          <a class="chip" href="https://developer.nvidia.com/dcgm" target="_blank" rel="noopener">NVIDIA DCGM telemetry &#8599;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORKLOAD EXPLORER ============ -->
+<section id="workloads">
+  <div class="rule"></div>
+  <div class="wrap">
+    <div class="kicker k-violet rv">05 — The Potential</div>
+    <h2 class="sec-title rv">What each VRAM tier <span class="grad-cy">actually unlocks.</span></h2>
+    <p class="sec-sub rv">
+      VRAM is not a spec-sheet number — it is a hard gate. Below the threshold, the workload does not run at all.
+      Select a workload to see what 24&nbsp;GB, 48&nbsp;GB, and 96&nbsp;GB mean in practice, with the primary source for each claim.
+    </p>
+
+    <div class="explorer rv">
+      <div class="wl-list" id="wlList"></div>
+      <div class="panel wl-panel" id="wlPanel"></div>
+    </div>
+
+    <p class="tbl-note rv" style="margin-top:1.2rem">
+      // Bar widths represent practical workload headroom at each tier, derived from the linked official
+      documentation. Exact memory use varies with resolution, batch size, quantization, and offloading strategy.
+    </p>
+
+    <div class="split rv" style="margin-top:3rem">
+      <div class="panel pad-lg">
+        <div class="kicker k-amber" style="margin-bottom:.9rem">The Prospect</div>
+        <h3 class="sub-title">Hugging Face is the curriculum. GPUs are the classroom.</h3>
+        <p class="dim">
+          Hugging Face hosts millions of open models, datasets, and applications — free to download, free to run,
+          free to modify. It is the single largest body of production AI knowledge available to a student,
+          and almost all of it is inaccessible without local VRAM.
+        </p>
+        <p class="dim" style="margin-bottom:0">
+          A GPU suite converts an open ecosystem the university already has free access to into
+          <b class="hl-am">hands-on, résumé-grade experience</b>.
+        </p>
+        <div class="chips" style="margin-top:1.2rem">
+          <a class="chip chip-am" href="https://huggingface.co/models" target="_blank" rel="noopener">2.5M+ models &#8599;</a>
+          <a class="chip chip-am" href="https://huggingface.co/datasets" target="_blank" rel="noopener">Datasets &#8599;</a>
+          <a class="chip chip-am" href="https://huggingface.co/spaces" target="_blank" rel="noopener">Spaces &#8599;</a>
+        </div>
+      </div>
+      <div class="panel pad-lg">
+        <div class="kicker k-red" style="margin-bottom:.9rem">Industry alignment</div>
+        <h3 class="sub-title">These are not toy projects.</h3>
+        <ul style="display:flex;flex-direction:column;gap:.85rem;margin-top:1rem">
+          <li style="display:flex;gap:.8rem;align-items:flex-start"><span class="hl-cy mono" style="font-size:.8rem">&#9656;</span><span class="dim" style="font-size:.93rem"><b>Text-to-video</b> — the fastest-growing generative media category in production advertising and film.</span></li>
+          <li style="display:flex;gap:.8rem;align-items:flex-start"><span class="hl-cy mono" style="font-size:.8rem">&#9656;</span><span class="dim" style="font-size:.93rem"><b>Live avatars</b> — real-time inference under a latency budget, the hardest class of deployed ML.</span></li>
+          <li style="display:flex;gap:.8rem;align-items:flex-start"><span class="hl-cy mono" style="font-size:.8rem">&#9656;</span><span class="dim" style="font-size:.93rem"><b>Local LLM serving</b> — the skill every enterprise with a data-residency requirement is hiring for.</span></li>
+          <li style="display:flex;gap:.8rem;align-items:flex-start"><span class="hl-cy mono" style="font-size:.8rem">&#9656;</span><span class="dim" style="font-size:.93rem"><b>Robotics RL</b> — simulation-first development is now the default industrial workflow.</span></li>
+          <li style="display:flex;gap:.8rem;align-items:flex-start"><span class="hl-cy mono" style="font-size:.8rem">&#9656;</span><span class="dim" style="font-size:.93rem"><b>Voice &amp; ASR</b> — accessibility, multilingual media, and agent interfaces.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HARDWARE / PIPELINE ============ -->
+<section id="hardware" style="background:linear-gradient(180deg,transparent,rgba(118,185,0,.03),transparent)">
+  <div class="rule"></div>
+  <div class="wrap">
+    <div class="kicker k-volt rv">06 — The Pipeline</div>
+    <h2 class="sec-title rv">Start with a fundable pilot.<br><span class="grad-vt">Use impact data to expand.</span></h2>
+    <p class="sec-sub rv">
+      Four stages, each independently fundable. Every stage produces usage data that justifies the next —
+      so no stakeholder is ever asked to approve the whole thing on faith.
+    </p>
+
+    <div class="tiers" style="margin-bottom:1.6rem">
+      <div class="panel tier rv brk"><div class="acc acc-vt"></div>
+        <div class="tname hl-vt">The Pilot</div>
+        <div class="hw">1&#215; 48 GB<br>RTX 6000 Ada</div>
+        <div class="cost grad-vt">~$11K</div>
+        <div class="note">GPU plus host chassis. Fundable through OSL / Finance Board / SGA as a single line item.</div>
+        <div class="vr">PROVES: demand, governance, uptime</div>
+      </div>
+      <div class="panel tier rv brk"><div class="acc acc-cy"></div>
+        <div class="tname hl-cy">The Potential</div>
+        <div class="hw">2–3&#215; 48 GB<br>GPUs</div>
+        <div class="cost grad-cy">~$19–26K</div>
+        <div class="note">Smart Lab and server-friendly. Concurrency arrives — two workshops can run at once.</div>
+        <div class="vr">PROVES: multi-org scheduling</div>
+      </div>
+      <div class="panel tier rv brk"><div class="acc acc-am"></div>
+        <div class="tname hl-am">The Essential</div>
+        <div class="hw">1&#215; 96 GB<br>RTX PRO 6000</div>
+        <div class="cost grad-am">~$18.5K</div>
+        <div class="note">Crosses the 80 GB threshold. Video generation and real-time avatars become possible at all.</div>
+        <div class="vr">UNLOCKS: 80 GB-class workloads</div>
+      </div>
+      <div class="panel tier rec rv brk"><div class="acc acc-rd"></div>
+        <div class="flag">Recommended</div>
+        <div class="tname hl-rd">The Future</div>
+        <div class="hw">1&#215; 96 GB<br>+ 2&#215; 48 GB</div>
+        <div class="cost grad-rd">~$33K</div>
+        <div class="note">Specialization plus concurrency. One card serves LLMs while others handle video, robotics, and rendering.</div>
+        <div class="vr">DELIVERS: real, durable capacity</div>
+      </div>
+    </div>
+
+    <div class="g3 rv" style="margin-bottom:2.5rem">
+      <div class="panel pad">
+        <div class="numrow" style="border:0;padding:0">
+          <div class="numbox" style="background:linear-gradient(135deg,#4da3ff,#1f6fd0)">1</div>
+          <div><h4>Concurrency</h4><p>Multiple students or a whole workshop run jobs without one user blocking everyone else.</p></div>
+        </div>
+      </div>
+      <div class="panel pad">
+        <div class="numrow" style="border:0;padding:0">
+          <div class="numbox" style="background:linear-gradient(135deg,#5fe3a1,#1f9c63)">2</div>
+          <div><h4>Specialization</h4><p>One GPU serves language models while another handles image/video or robotics workloads.</p></div>
+        </div>
+      </div>
+      <div class="panel pad">
+        <div class="numrow" style="border:0;padding:0">
+          <div class="numbox" style="background:linear-gradient(135deg,#ff4d6d,#c8102e)">3</div>
+          <div><h4>Growth path</h4><p>One-to-many GPU &#8594; small cluster &#8594; enhanced 96 GB+ compute, each step justified by measured usage.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout am rv" style="margin-bottom:2.5rem">
+      <b>THE REQUEST:</b> Approve the 48&nbsp;GB pilot so beginner projects can start immediately — but for real
+      impact, cost-effective future-proofing, and industry-level proficiency, approve the
+      <span class="hl-am">1&#215; 96&nbsp;GB + 2&#215; 48&nbsp;GB cluster</span>.
+    </div>
+
+    <!-- PRICE MATRIX -->
+    <div class="kicker rv" style="margin-top:3.5rem">06b — Market pricing</div>
+    <h3 class="sub-title rv" style="margin-bottom:.5rem">Verified street pricing, multiple vendors</h3>
+    <p class="sec-sub rv" style="margin-bottom:1.6rem">
+      Researched August 2026 across NVIDIA's own marketplace, national resellers, and integrators —
+      not a single-source estimate. Spread between the cheapest and most expensive listing of the
+      <em>same card</em> currently exceeds 35%, which is itself an argument for procurement support.
+    </p>
+
+    <div class="tbl-scroll rv">
+      <table class="px">
+        <thead>
+          <tr><th>GPU</th><th>VRAM</th><th>Vendor / source</th><th>Price</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="gpu">RTX PRO 6000 Blackwell</td><td class="vram-b">96 GB GDDR7</td>
+            <td class="vend"><a href="https://www.tomshardware.com/pc-components/gpus/nvidia-doubles-rtx-pro-6000-blackwells-msrp-to-a-staggering-usd16-000-96gb-card-started-pre-orders-below-usd8-000-last-year" target="_blank" rel="noopener">NVIDIA Marketplace &#8599;</a></td>
+            <td class="price">$16,000</td><td>Official list, Aug 2026 — up from $8,565 at March 2025 launch</td>
+          </tr>
+          <tr>
+            <td class="gpu">RTX PRO 6000 Blackwell</td><td class="vram-b">96 GB GDDR7</td>
+            <td class="vend"><a href="https://www.newegg.com/" target="_blank" rel="noopener">Newegg &#8599;</a></td>
+            <td class="price">$13,998</td><td>~$2,000 below NVIDIA's own store</td>
+          </tr>
+          <tr>
+            <td class="gpu">PNY RTX PRO 6000</td><td class="vram-b">96 GB GDDR7</td>
+            <td class="vend"><a href="https://www.cdw.com/product/pny-nvidia-rtx-pro-6000-graphic-card-96-gb-gddr7-full-height/8326706" target="_blank" rel="noopener">CDW &#8599;</a></td>
+            <td class="price">$13,412.99</td><td>CDW-G holds education contract pricing</td>
+          </tr>
+          <tr>
+            <td class="gpu">NVD RTX PRO 6000 Blackwell</td><td class="vram-b">96 GB GDDR7</td>
+            <td class="vend"><a href="https://www.amazon.com/NVD-RTX-PRO-6000-Blackwell/dp/B0F7Y644FQ" target="_blank" rel="noopener">Amazon &#8599;</a></td>
+            <td class="price">$11,859.99</td><td>Lowest verified new-card listing</td>
+          </tr>
+          <tr>
+            <td class="gpu">RTX 6000 Ada Generation</td><td class="vram-b">48 GB GDDR6 ECC</td>
+            <td class="vend"><a href="https://www.bhphotovideo.com/c/product/1753962-REG/pny_vcnrtx6000ada_pb_rtx_6000_ada_generation.html" target="_blank" rel="noopener">B&amp;H Photo &#8599;</a></td>
+            <td class="price">$7,499.00</td><td><b class="hl-vt">Best pilot value</b> — ECC memory, 300 W, dual-slot</td>
+          </tr>
+          <tr>
+            <td class="gpu">PNY RTX 6000 Ada</td><td class="vram-b">48 GB GDDR6</td>
+            <td class="vend"><a href="https://www.newegg.com/pny-technologies-inc-vcnrtx6000ada-pb-rtx-6000-ada-48gb-graphics-card/p/N82E16814133886" target="_blank" rel="noopener">Newegg &#8599;</a></td>
+            <td class="price">$9,582.30</td><td>Third-party seller — illustrates vendor spread</td>
+          </tr>
+          <tr>
+            <td class="gpu">RTX PRO 5000 Blackwell</td><td class="vram-b">48 GB GDDR7</td>
+            <td class="vend"><a href="https://www.amazon.com/dp/B0GLHLSYPC" target="_blank" rel="noopener">Amazon &#8599;</a></td>
+            <td class="price">$6,298.00</td><td>Newer architecture at 48 GB, GDDR7 bandwidth</td>
+          </tr>
+          <tr>
+            <td class="gpu">NVIDIA RTX A6000</td><td class="vram-b">48 GB GDDR6</td>
+            <td class="vend"><a href="https://www.amazon.com/PNY-VCNRTXA6000-PB-NVIDIA-RTX-A6000/dp/B09BDH8VZV" target="_blank" rel="noopener">Amazon &#8599;</a></td>
+            <td class="price">$5,470.00</td><td>Ampere generation — proven, widely documented</td>
+          </tr>
+          <tr>
+            <td class="gpu">Quadro RTX 8000</td><td class="vram-b">48 GB GDDR6</td>
+            <td class="vend"><a href="https://www.amazon.com/dp/B0842YFDRF" target="_blank" rel="noopener">Amazon &#8599;</a></td>
+            <td class="price">$3,140.00</td><td>Lowest cost per GB — Turing, no FP8 support</td>
+          </tr>
+          <tr>
+            <td class="gpu">NVIDIA A100</td><td class="vram-b">80 GB HBM2e</td>
+            <td class="vend"><a href="https://www.amazon.com/PNY-A100-80GB-Graphics-Card/dp/B0CDMFRGWZ" target="_blank" rel="noopener">Amazon &#8599;</a></td>
+            <td class="price">$16,399.00</td><td>Datacenter class — needs server chassis and airflow</td>
+          </tr>
+          <tr>
+            <td class="gpu">Complete AI workstation</td><td class="vram-b">Configurable</td>
+            <td class="vend"><a href="https://www.exxactcorp.com/" target="_blank" rel="noopener">Exxact &#8599;</a></td>
+            <td class="price">from $4,275</td><td>Chassis/CPU/PSU base — validated multi-GPU builds</td>
+          </tr>
+          <tr>
+            <td class="gpu">Complete AI workstation</td><td class="vram-b">Configurable</td>
+            <td class="vend"><a href="https://www.pugetsystems.com/solutions/scientific-computing-workstations/" target="_blank" rel="noopener">Puget Systems &#8599;</a></td>
+            <td class="price">$4,500–$6,300</td><td>Publishes full component transparency and thermals</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note rv">
+      // Prices researched August 2026 and subject to rapid change. NVIDIA raised RTX PRO 6000 Blackwell list
+      pricing roughly 55–87% within sixteen months of launch, driven primarily by a GDDR7 memory shortage rather
+      than manufacturing cost.<br>
+      // Illinois Tech should request education pricing through CDW-G, Insight Public Sector, SHI, or Connection
+      before purchase — academic contract rates are frequently below the public listings above.
+    </p>
+
+    <div class="callout rv" style="margin-top:1.6rem">
+      <span class="hl-rd">Timing is part of the argument.</span> The same 96&nbsp;GB card that cost
+      $8,565 at launch now lists at $16,000. Every semester this decision waits, the hardware gets
+      more expensive and the students graduate without having touched it.
+    </div>
+  </div>
+</section>
+
+<!-- ============ ECONOMICS ============ -->
+<section id="economics">
+  <div class="rule"></div>
+  <div class="wrap">
+    <div class="kicker k-mint rv">07 — The Economics</div>
+    <h2 class="sec-title rv">Own it, or rent it forever.<br><span class="grad-cy">Run the numbers yourself.</span></h2>
+    <p class="sec-sub rv">
+      Cloud GPU rental never stops billing, cannot be used for a spontaneous 2&nbsp;a.m. hackathon idea without a
+      credit card, and leaves the university owning nothing at the end. Adjust the model below —
+      it uses real market rates and real capital costs.
+    </p>
+
+    <div class="panel pad-lg rv">
+      <div class="calc">
+        <div>
+          <div class="field">
+            <label>Configuration</label>
+            <div class="seg" id="cfgSeg">
+              <button type="button" data-cfg="pilot">48 GB Pilot</button>
+              <button type="button" data-cfg="ess" class="on">96 GB Essential</button>
+              <button type="button" data-cfg="full">Full Cluster</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Utilization <b id="hrsVal">40 hrs</b></label>
+            <input type="range" id="hrs" min="5" max="168" step="1" value="40">
+            <p class="tbl-note" style="margin-top:.6rem">// GPU-hours consumed per week across all students, workshops, and jobs. A single active club project easily sustains 20–40.</p>
+          </div>
+          <div class="field">
+            <label>Cloud rate <b id="rateVal">$1.65/hr</b></label>
+            <input type="range" id="rate" min="0.5" max="4" step="0.05" value="1.65">
+            <p class="tbl-note" style="margin-top:.6rem">
+              // Market reference, Aug 2026: Vast.ai RTX PRO 6000 from <b>$0.67/hr</b> ·
+              Lambda RTX 6000 Ada from <b>$0.69/hr</b> · RunPod A100 80&nbsp;GB <b>$1.39/hr</b> ·
+              RunPod H100 PCIe <b>$2.89/hr</b> · RunPod H200 <b>$4.39/hr</b>.
+            </p>
+          </div>
+        </div>
+
+        <div class="readout">
+          <div class="ro-hero">
+            <div class="n"><span id="roBreak">—</span> <span style="font-size:.42em;letter-spacing:.1em">MONTHS</span></div>
+            <div class="c">Break-even vs. renting</div>
+          </div>
+          <div class="ro-row"><span class="k">Hardware capital cost</span><span class="v" id="roCapex">—</span></div>
+          <div class="ro-row"><span class="k">4-year cloud spend</span><span class="v" id="roCloud">—</span></div>
+          <div class="ro-row"><span class="k">4-year owned cost</span><span class="v" id="roOwned">—</span></div>
+          <div class="ro-row"><span class="k">Net saved by owning</span><span class="v" id="roSaved">—</span></div>
+          <div class="ro-row"><span class="k">GPU-hours delivered / yr</span><span class="v" id="roHrs">—</span></div>
+          <div class="ro-row"><span class="k">True cost per GPU-hour</span><span class="v" id="roPerHr">—</span></div>
+        </div>
+      </div>
+      <p class="calc-note">
+        // Model assumptions: 4-year service life; electricity at $0.12/kWh with a 15% overhead factor for host
+        and cooling; owned cost = capital + lifetime power. Excludes staff time, which the student administration
+        model contributes at no cost to the university — that is the point of the governance structure.
+      </p>
+    </div>
+
+    <div class="g3 rv" style="margin-top:1.6rem">
+      <div class="panel pad brk"><div class="acc acc-mi"></div>
+        <h4 style="color:#fff;margin-bottom:.5rem">Owning enables what renting cannot</h4>
+        <p class="dim" style="font-size:.9rem;margin:0">No per-minute anxiety. Students experiment, fail, and retry — which is how learning works and exactly what metered billing punishes.</p>
+      </div>
+      <div class="panel pad brk"><div class="acc acc-cy"></div>
+        <h4 style="color:#fff;margin-bottom:.5rem">Data stays on campus</h4>
+        <p class="dim" style="font-size:.9rem;margin:0">Research data, student work, and any FERPA-adjacent material never leave Illinois Tech infrastructure. That is a compliance advantage, not just a cost one.</p>
+      </div>
+      <div class="panel pad brk"><div class="acc acc-vt"></div>
+        <h4 style="color:#fff;margin-bottom:.5rem">The asset persists</h4>
+        <p class="dim" style="font-size:.9rem;margin:0">Cloud credits expire and leave nothing behind. A GPU is a depreciating asset that still serves students in year five — and can be donated forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPACT ============ -->
+<section id="impact" style="background:linear-gradient(180deg,transparent,rgba(0,229,255,.028),transparent)">
+  <div class="rule"></div>
+  <div class="wrap">
+    <div class="kicker rv">08 — The Impact</div>
+    <h2 class="sec-title rv">Academic, recruitment, and<br><span class="grad-cy">career infrastructure.</span></h2>
+    <p class="sec-sub rv">A visible GPU suite becomes a reason students choose Illinois Tech — and a reason employers keep coming back to hire them.</p>
+
+    <div class="g3">
+      <div class="panel pad rv brk"><div class="acc acc-cy"></div>
+        <h3 class="sub-title" style="font-size:1.1rem">New computing majors</h3>
+        <p class="dim" style="font-size:.9rem;margin:0">GPU access is a concrete, demonstrable selling point for AI, CS, game design, robotics, cybersecurity, and data-focused applicants. It photographs well on a campus tour and it survives the parent question: <em>"but what will they actually build?"</em></p>
+      </div>
+      <div class="panel pad rv brk"><div class="acc acc-vi"></div>
+        <h3 class="sub-title" style="font-size:1.1rem">Student organizations</h3>
+        <p class="dim" style="font-size:.9rem;margin:0">ML@IIT, Illinois Tech Robotics, IGDA, ACM, Codify, and aligned groups gain one shared resource for workshops and projects — instead of five competing hardware requests.</p>
+      </div>
+      <div class="panel pad rv brk"><div class="acc acc-rd"></div>
+        <h3 class="sub-title" style="font-size:1.1rem">Career Services</h3>
+        <p class="dim" style="font-size:.9rem;margin:0">Students graduate with interview-ready portfolios: local LLM applications, computer-vision demos, fine-tuned models, and AI media tools — artifacts, not coursework grades.</p>
+      </div>
+      <div class="panel pad rv brk"><div class="acc acc-vt"></div>
+        <h3 class="sub-title" style="font-size:1.1rem">Faculty + Smart Lab</h3>
+        <p class="dim" style="font-size:.9rem;margin:0">The suite supports research-adjacent student prototypes, demos, and AI education without requiring every lab to buy isolated hardware from its own grant.</p>
+      </div>
+      <div class="panel pad rv brk"><div class="acc acc-am"></div>
+        <h3 class="sub-title" style="font-size:1.1rem">Hackathons</h3>
+        <p class="dim" style="font-size:.9rem;margin:0">Reliable on-campus compute raises the ceiling on student demos and makes Illinois Tech-hosted AI events genuinely competitive with those at larger schools.</p>
+      </div>
+      <div class="panel pad rv brk"><div class="acc acc-mi"></div>
+        <h3 class="sub-title" style="font-size:1.1rem">Institutional identity</h3>
+        <p class="dim" style="font-size:.9rem;margin:0">It says Illinois Tech prepares students for the AI infrastructure reality already shaping industry — and that the university acts on that reality rather than describing it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENTREPRENEURSHIP ============ -->
+<section id="entrepreneurship">
+  <div class="rule"></div>
+  <div class="wrap">
+    <div class="kicker k-amber rv">09 — The Venture Case</div>
+    <h2 class="sec-title rv">Compute is where<br><span class="grad-am">student companies start.</span></h2>
+    <p class="sec-sub rv">
+      Every AI company begins as somebody's unfunded experiment. The difference between a project and a
+      startup is usually whether the founder could run the thing long enough to show it to someone.
+      That is a hardware question before it is a business question.
+    </p>
+
+    <div class="split" style="margin-bottom:2rem">
+      <div class="panel pad-lg rv">
+        <h3 class="sub-title">The Chicago precedent</h3>
+        <p class="dim">
+          In April 2026, the University of Chicago's Polsky Center announced a partnership with the AI Research
+          Commons, <b>Microsoft, and NVIDIA</b> to accelerate Midwest AI startups — bringing inception-stage
+          companies up to <b class="hl-am">$350K in cloud credits</b>, NVIDIA Inception benefits, and Bay Area
+          investor introductions.
+        </p>
+        <p class="dim" style="margin-bottom:0">
+          Seven miles north of our campus, a peer institution built the on-ramp. Illinois Tech has the
+          engineering culture, the Smart Lab, and the student organizations already in place. What it does not
+          have is the compute.
+        </p>
+        <div class="chips" style="margin-top:1.2rem">
+          <a class="chip chip-am" href="https://polsky.uchicago.edu/2026/04/14/university-of-chicago-announces-partnership-with-ai-research-commons-microsoft-nvidia-to-accelerate-midwest-ai-startups/" target="_blank" rel="noopener">Read the announcement &#8599;</a>
+        </div>
+      </div>
+      <div class="panel pad-lg rv">
+        <h3 class="sub-title">For business and entrepreneurship majors</h3>
+        <p class="dim">
+          The Compute Collaborative is not only an engineering project. It is a small operating business with a
+          capital budget, a utilization model, a service-level obligation, a governance charter, and a
+          succession plan.
+        </p>
+        <ul style="display:flex;flex-direction:column;gap:.7rem;margin-top:1rem">
+          <li class="dim" style="font-size:.92rem;padding-left:1.3rem;position:relative"><span style="position:absolute;left:0;color:var(--amber)">&#9656;</span> <b>Capital allocation</b> — justify a five-figure purchase with a utilization forecast.</li>
+          <li class="dim" style="font-size:.92rem;padding-left:1.3rem;position:relative"><span style="position:absolute;left:0;color:var(--amber)">&#9656;</span> <b>Unit economics</b> — measure and report true cost per GPU-hour delivered.</li>
+          <li class="dim" style="font-size:.92rem;padding-left:1.3rem;position:relative"><span style="position:absolute;left:0;color:var(--amber)">&#9656;</span> <b>Vendor negotiation</b> — education pricing, warranty terms, procurement cycles.</li>
+          <li class="dim" style="font-size:.92rem;padding-left:1.3rem;position:relative"><span style="position:absolute;left:0;color:var(--amber)">&#9656;</span> <b>Sponsor relations</b> — manage a corporate partnership and report against it.</li>
+          <li class="dim" style="font-size:.92rem;padding-left:1.3rem;position:relative"><span style="position:absolute;left:0;color:var(--amber)">&#9656;</span> <b>Stakeholder governance</b> — allocate a scarce resource across five organizations, fairly and visibly.</li>
+        </ul>
+        <p class="dim" style="margin:1.2rem 0 0;font-size:.92rem">
+          Kellogg-style case studies are taught from decks. This one would be lived from a budget line.
+        </p>
+      </div>
+    </div>
+
+    <div class="g4">
+      <a href="https://www.nvidia.com/en-us/startups/" target="_blank" rel="noopener" class="panel pad rv brk" style="color:inherit"><div class="acc acc-vt"></div>
+        <div class="kicker k-volt" style="margin-bottom:.6rem">Program</div>
+        <h4 style="color:#fff;margin-bottom:.4rem">NVIDIA Inception</h4>
+        <p class="dim" style="font-size:.86rem;margin:0">Free program for AI startups — technical training, hardware and software discounts, VC introductions. Student companies qualify. &#8599;</p>
+      </a>
+      <a href="https://nairrpilot.org/" target="_blank" rel="noopener" class="panel pad rv brk" style="color:inherit"><div class="acc acc-cy"></div>
+        <div class="kicker" style="margin-bottom:.6rem">Federal</div>
+        <h4 style="color:#fff;margin-bottom:.4rem">NAIRR Pilot</h4>
+        <p class="dim" style="font-size:.86rem;margin:0">National AI Research Resource — open to US academic researchers, educators, and students. Graduate students may apply with a faculty advisor. &#8599;</p>
+      </a>
+      <a href="https://access-ci.org/" target="_blank" rel="noopener" class="panel pad rv brk" style="color:inherit"><div class="acc acc-vi"></div>
+        <div class="kicker k-violet" style="margin-bottom:.6rem">Federal</div>
+        <h4 style="color:#fff;margin-bottom:.4rem">NSF ACCESS</h4>
+        <p class="dim" style="font-size:.86rem;margin:0">Allocations of national cyberinfrastructure for research and education — a complement to local hardware, not a replacement for it. &#8599;</p>
+      </a>
+      <a href="https://www.microsoft.com/en-us/startups" target="_blank" rel="noopener" class="panel pad rv brk" style="color:inherit"><div class="acc acc-am"></div>
+        <div class="kicker k-amber" style="margin-bottom:.6rem">Industry</div>
+        <h4 style="color:#fff;margin-bottom:.4rem">Founders Hub</h4>
+        <p class="dim" style="font-size:.86rem;margin:0">Microsoft for Startups — self-serve entry tier open to any qualifying startup, scaling to $150K in credits with investor affiliation. &#8599;</p>
+      </a>
+    </div>
+
+    <div class="callout am rv" style="margin-top:1.6rem">
+      Local hardware and cloud credits are complements, not substitutes. Credits are how a validated idea scales.
+      <span class="hl-am">Owned compute is how the idea gets validated in the first place</span> — at 2&nbsp;a.m.,
+      on a weekend, without a purchase order.
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTNERS / SPONSORSHIP ============ -->
+<section id="partners" style="background:linear-gradient(180deg,transparent,rgba(118,185,0,.035),transparent)">
+  <div class="rule"></div>
+  <div class="wrap">
+    <div class="kicker k-volt rv">10 — For Partners &amp; Sponsors</div>
+    <h2 class="sec-title rv">Sponsor a GPU.<br><span class="grad-vt">Put your name on the on-ramp.</span></h2>
+    <p class="sec-sub rv">
+      For NVIDIA, regional technology employers, alumni, and foundations: this is one of the cheapest
+      high-visibility interventions available in university partnership. A single card reaches every
+      computing student who walks through the Smart Lab for the next four years.
+    </p>
+
+    <div class="g3" style="margin-bottom:2rem">
+      <div class="panel spon rv brk"><div class="acc acc-cy"></div>
+        <div class="lvl hl-cy">Tier 01 — Enabler</div>
+        <div class="amt">$3K–$8K<small>One 48 GB-class GPU</small></div>
+        <ul>
+          <li>Named on the suite's public dashboard and this site</li>
+          <li>Recognition at every workshop run on the hardware</li>
+          <li>Quarterly usage and impact report</li>
+          <li>Priority access to sponsor-hosted student workshops</li>
+        </ul>
+      </div>
+      <div class="panel spon rv brk" style="border-color:rgba(118,185,0,.45);box-shadow:0 0 44px -16px rgba(118,185,0,.45)"><div class="acc acc-vt"></div>
+        <div class="lvl hl-vt">Tier 02 — Founding Partner</div>
+        <div class="amt">$12K–$18K<small>One 96 GB RTX PRO-class GPU</small></div>
+        <ul>
+          <li>Everything in Tier 01</li>
+          <li><b>Naming rights on a compute node</b> for its service life</li>
+          <li>Annual recruiting event hosted with the Collaborative</li>
+          <li>First look at student projects and portfolios</li>
+          <li>Co-branded hackathon track</li>
+        </ul>
+      </div>
+      <div class="panel spon rv brk"><div class="acc acc-rd"></div>
+        <div class="lvl hl-rd">Tier 03 — Infrastructure Partner</div>
+        <div class="amt">$33K+<small>The full cluster</small></div>
+        <ul>
+          <li>Everything in Tiers 01 and 02</li>
+          <li><b>Naming rights on the suite itself</b></li>
+          <li>Seat on the governance and review board</li>
+          <li>Named annual student research prize</li>
+          <li>Direct pipeline into an engineering talent cohort</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="panel pad-lg rv">
+        <div class="kicker k-volt" style="margin-bottom:.9rem">Specifically for NVIDIA</div>
+        <h3 class="sub-title">The programs already exist. We fit them.</h3>
+        <p class="dim">
+          NVIDIA's Academic Hardware Grant Program has historically donated workstation-class GPUs —
+          RTX 6000 Ada, RTX A6000, and datacenter cards for higher-impact projects — at valuations of roughly
+          <b class="hl-vt">$5,000 to $25,000</b>. The main track is not accepting new applications as of
+          August 2026, but the AI Safety track runs on a rolling deadline and remains open globally.
+        </p>
+        <p class="dim">
+          Alongside hardware, the <b>DLI Teaching Kit</b> and <b>University Ambassador</b> programs give
+          Illinois Tech certified instructors, free student course access worth up to $90 per course per
+          student, and curriculum that maps directly onto the workloads this suite would run.
+        </p>
+        <p class="dim" style="margin-bottom:0">
+          A GPU in the Smart Lab is not charity. It is a certified-instructor pipeline, a Chicago-region
+          recruiting channel, and a demonstrable answer to the academic compute divide that NVIDIA's own
+          leadership describes as an economic problem.
+        </p>
+        <div class="chips" style="margin-top:1.3rem">
+          <a class="chip chip-vt" href="https://www.nvidia.com/en-us/industries/higher-education-research/academic-grant-program/" target="_blank" rel="noopener">Academic Grant Program &#8599;</a>
+          <a class="chip chip-vt" href="https://developer.nvidia.com/higher-education-and-research" target="_blank" rel="noopener">Higher Ed &amp; Research &#8599;</a>
+          <a class="chip chip-vt" href="https://www.nvidia.com/en-us/training/educator-programs/university-ambassador-program/" target="_blank" rel="noopener">DLI Ambassador Program &#8599;</a>
+          <a class="chip chip-vt" href="https://developer.nvidia.com/teaching-kits" target="_blank" rel="noopener">DLI Teaching Kits &#8599;</a>
+        </div>
+      </div>
+
+      <div class="panel pad-lg rv">
+        <div class="kicker k-red" style="margin-bottom:.9rem">What a sponsor gets back</div>
+        <h3 class="sub-title">Measured, reported, and public.</h3>
+        <ul style="display:flex;flex-direction:column;gap:.9rem;margin-top:1rem">
+          <li style="display:flex;gap:.85rem"><span class="hl-mi mono">01</span><span class="dim" style="font-size:.92rem"><b>GPU-hours delivered</b> — total compute put into student hands, reported monthly.</span></li>
+          <li style="display:flex;gap:.85rem"><span class="hl-mi mono">02</span><span class="dim" style="font-size:.92rem"><b>Unique students served</b> — headcount across all five founding organizations.</span></li>
+          <li style="display:flex;gap:.85rem"><span class="hl-mi mono">03</span><span class="dim" style="font-size:.92rem"><b>Projects shipped</b> — demos, papers, hackathon entries, and public repositories.</span></li>
+          <li style="display:flex;gap:.85rem"><span class="hl-mi mono">04</span><span class="dim" style="font-size:.92rem"><b>Workshops run</b> — sessions taught on the hardware, with attendance.</span></li>
+          <li style="display:flex;gap:.85rem"><span class="hl-mi mono">05</span><span class="dim" style="font-size:.92rem"><b>Career outcomes</b> — internships and offers traceable to portfolio work built here.</span></li>
+        </ul>
+        <p class="dim" style="margin:1.4rem 0 0;font-size:.92rem">
+          Transparency is built into the operating model because the governance layer was designed first.
+          A sponsor is not asked to trust us — a sponsor is handed the logs.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROADMAP ============ -->
+<section id="roadmap">
+  <div class="rule"></div>
+  <div class="wrap">
+    <div class="kicker k-violet rv">11 — The Roadmap</div>
+    <h2 class="sec-title rv">A staged plan reduces risk<br><span class="grad-cy">and keeps every stakeholder aligned.</span></h2>
+    <p class="sec-sub rv">No stage asks anyone to approve the whole thing at once.</p>
+
+    <div class="road rv">
+      <div class="stage"><span class="num">1</span>
+        <div><h4>Coalition</h4><div class="who">ML@IIT · ITR · ACM · Codify · IGDA</div></div>
+        <p>Collect organization use cases and written support statements. Establish the shared governance charter before any hardware conversation.</p>
+      </div>
+      <div class="stage"><span class="num">2</span>
+        <div><h4>Finance Board</h4><div class="who">Sarah · Student funding</div></div>
+        <p>Confirm funding rules, feasibility, approved vendors, and next steps for a capital-equipment request of this size.</p>
+      </div>
+      <div class="stage"><span class="num">3</span>
+        <div><h4>Smart Lab</h4><div class="who">Prof. Jeremy Hajek</div></div>
+        <p>Finalize host location, administration model, VPN/SSH feasibility, power and cooling budget, and hardware constraints.</p>
+      </div>
+      <div class="stage"><span class="num">4</span>
+        <div><h4>Dean &amp; Faculty</h4><div class="who">College of Computing</div></div>
+        <p>Secure an academic sponsor and College-level support — converting a student initiative into an institutional one.</p>
+      </div>
+      <div class="stage"><span class="num">5</span>
+        <div><h4>Implementation</h4><div class="who">Build · Govern · Measure</div></div>
+        <p>Leverage the approved budget, establish governance, deploy the architecture, and instrument pilot metrics from day one.</p>
+      </div>
+      <div class="stage"><span class="num">6</span>
+        <div><h4>External funding</h4><div class="who">NVIDIA · Sponsors · Alumni</div></div>
+        <p>Pursue NVIDIA programs, cloud credits, corporate sponsors, alumni gifts, and donors — using pilot data as the evidence base.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COALITION ============ -->
+<section id="coalition" style="background:linear-gradient(180deg,transparent,rgba(228,0,43,.03),transparent)">
+  <div class="rule"></div>
+  <div class="wrap">
+    <div class="kicker k-red rv">12 — The Coalition</div>
+    <h2 class="sec-title rv">Five organizations.<br><span class="grad-rd">One shared resource.</span></h2>
+    <p class="sec-sub rv">Managed by students, for students of affiliated organizations and leadership.</p>
+
+    <div class="g4" style="margin-bottom:1.4rem">
+      <div class="panel org rv brk"><div class="acc acc-cy"></div>
+        <div class="mark" style="background:rgba(0,229,255,.07);border-color:rgba(0,229,255,.3)">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.6"><path d="M9 3a3 3 0 00-3 3 3 3 0 00-2 5 3 3 0 002 5 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3z"/><path d="M15 6h4M15 12h5M15 18h4"/></svg>
+        </div>
+        <div class="oname">ML@IIT</div><div class="orole">Machine Learning</div>
+        <p>Model training, fine-tuning, and applied ML workshops.</p>
+      </div>
+      <div class="panel org rv brk"><div class="acc acc-rd"></div>
+        <div class="mark" style="background:rgba(228,0,43,.07);border-color:rgba(228,0,43,.3)">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#E4002B" stroke-width="1.6"><rect x="4" y="8" width="16" height="12" rx="2"/><circle cx="9" cy="13" r="1.4"/><circle cx="15" cy="13" r="1.4"/><path d="M12 8V4M8 4h8"/></svg>
+        </div>
+        <div class="oname">Illinois Tech Robotics</div><div class="orole">ITR</div>
+        <p>Simulation, reinforcement learning, and perception pipelines.</p>
+      </div>
+      <div class="panel org rv brk"><div class="acc acc-vi"></div>
+        <div class="mark" style="background:rgba(166,107,255,.07);border-color:rgba(166,107,255,.3)">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#A66BFF" stroke-width="1.6" stroke-linecap="round"><path d="M8 6l-5 6 5 6M16 6l5 6-5 6M13 4l-2 16"/></svg>
+        </div>
+        <div class="oname">ACM</div><div class="orole">Illinois Tech Chapter</div>
+        <p>Competitive programming, systems, and technical education.</p>
+      </div>
+      <div class="panel org rv brk"><div class="acc acc-am"></div>
+        <div class="mark" style="background:rgba(255,196,0,.07);border-color:rgba(255,196,0,.3)">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFC400" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg>
+        </div>
+        <div class="oname">Codify</div><div class="orole">Create · Innovate · Network</div>
+        <p>Build nights, project incubation, and industry connection.</p>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div class="panel org rv brk" style="text-align:left;align-items:flex-start"><div class="acc acc-vt"></div>
+        <div class="mark" style="background:rgba(118,185,0,.07);border-color:rgba(118,185,0,.3)">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#76B900" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="7" width="20" height="11" rx="4"/><path d="M7 11v3M5.5 12.5h3M16 12h.01M18.5 14h.01"/></svg>
+        </div>
+        <div class="oname">IGDA</div><div class="orole">International Game Developers Association</div>
+        <p style="text-align:left">Real-time rendering, AR/VR environments, procedural content, and AI-driven game systems — the workloads that consume VRAM fastest.</p>
+      </div>
+      <div class="panel org rv brk" style="text-align:left;align-items:flex-start"><div class="acc acc-mi"></div>
+        <div class="mark" style="background:rgba(61,255,192,.07);border-color:rgba(61,255,192,.3)">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3DFFC0" stroke-width="1.6" stroke-linecap="round"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6M7 12h.01M17 12h.01"/></svg>
+        </div>
+        <div class="oname">Illinois Tech Smart Lab</div><div class="orole">Host &amp; oversight</div>
+        <p style="text-align:left">Embedded systems, wireless technologies, and sustainability research facility — the institutional home, with faculty oversight from Prof. Jeremy Hajek.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE ASK ============ -->
+<section id="ask">
+  <div class="rule"></div>
+  <div class="wrap">
+    <div class="cta rv">
+      <div class="kicker k-red" style="justify-content:center;margin-bottom:1.2rem">13 — The Request</div>
+      <h2 class="grad-cy">This is more than a GPU suite.<br>This is new infrastructure for a new era.</h2>
+      <p>
+        Illinois Tech students need compute access to build modern AI. We are ready to help build, govern,
+        and facilitate it. What we need is the funding to acquire the hardware that supports the suite.
+      </p>
+      <div style="display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;position:relative">
+        <a href="mailto:alittletechforyou2@gmail.com?subject=The%20Compute%20Collaborative%20%E2%80%94%20Illinois%20Tech" class="btn btn-primary">Start the conversation &#8594;</a>
+        <a href="#hardware" class="btn">Review the hardware plan</a>
+      </div>
+
+      <div class="ask-grid">
+        <div class="ask">
+          <div class="kicker" style="margin-bottom:.7rem;font-size:.62rem">Ask 01</div>
+          <h4>Approve the direction</h4>
+          <p>Confirm that this is a valid initiative to develop into an official budget request.</p>
+        </div>
+        <div class="ask">
+          <div class="kicker k-amber" style="margin-bottom:.7rem;font-size:.62rem">Ask 02</div>
+          <h4>Advise the funding path</h4>
+          <p>Tell us whether this belongs through Finance Board, SGA, college support, College of Computing sponsorship, or another route entirely.</p>
+        </div>
+        <div class="ask">
+          <div class="kicker k-volt" style="margin-bottom:.7rem;font-size:.62rem">Ask 03</div>
+          <h4>Connect stakeholders</h4>
+          <p>Help us coordinate with the Smart Lab, OTS, the College of Computing, and the President of Illinois Tech.</p>
+        </div>
+      </div>
+
+      <div class="chips" style="justify-content:center;margin-top:2.4rem;position:relative">
+        <span class="chip chip-vt">Governed</span>
+        <span class="chip chip-cy">Shared</span>
+        <span class="chip chip-am">Logged</span>
+        <span class="chip chip-rd">Career Development</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFERENCES ============ -->
+<section id="references">
+  <div class="rule"></div>
+  <div class="wrap">
+    <div class="kicker rv">14 — The References</div>
+    <h2 class="sec-title rv">Every claim on this page<br><span class="grad-cy">has a source behind it.</span></h2>
+    <p class="sec-sub rv">Official documentation, peer-reviewed research, market pricing, and reporting — all linked, all verifiable.</p>
+
+    <div class="rv">
+      <div class="ref-group">
+        <h4>GPU workloads &amp; official requirements</h4>
+        <div class="ref-list">
+          <a class="ref" href="https://github.com/Tencent-Hunyuan/HunyuanVideo#-single-gpu-inference" target="_blank" rel="noopener"><span class="idx">01</span><span class="body"><span class="t">HunyuanVideo — single-GPU inference requirements</span><span class="m">github.com/Tencent-Hunyuan/HunyuanVideo</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://github.com/Tencent-Hunyuan/HunyuanVideo#-parallel-inference-on-multiple-gpus-by-xdit" target="_blank" rel="noopener"><span class="idx">02</span><span class="body"><span class="t">HunyuanVideo — multi-GPU parallel inference (xDiT)</span><span class="m">github.com/Tencent-Hunyuan/HunyuanVideo</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://github.com/Wan-Video/Wan2.1" target="_blank" rel="noopener"><span class="idx">03</span><span class="body"><span class="t">Wan2.1 — open large-scale video generative models</span><span class="m">github.com/Wan-Video/Wan2.1</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://huggingface.co/Wan-AI/Wan2.1-T2V-14B" target="_blank" rel="noopener"><span class="idx">04</span><span class="body"><span class="t">Wan2.1-T2V-14B model card</span><span class="m">huggingface.co/Wan-AI</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://huggingface.co/Quark-Vision/LiveAvatar" target="_blank" rel="noopener"><span class="idx">05</span><span class="body"><span class="t">Quark-Vision LiveAvatar — streaming real-time avatar generation</span><span class="m">huggingface.co/Quark-Vision</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/requirements.html" target="_blank" rel="noopener"><span class="idx">06</span><span class="body"><span class="t">NVIDIA Isaac Sim — system requirements</span><span class="m">docs.isaacsim.omniverse.nvidia.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://docs.blender.org/manual/en/latest/render/cycles/gpu_rendering.html" target="_blank" rel="noopener"><span class="idx">07</span><span class="body"><span class="t">Blender Manual — GPU rendering</span><span class="m">docs.blender.org</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://huggingface.co/docs/diffusers/index" target="_blank" rel="noopener"><span class="idx">08</span><span class="body"><span class="t">Hugging Face Diffusers documentation</span><span class="m">huggingface.co/docs/diffusers</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener"><span class="idx">09</span><span class="body"><span class="t">vLLM — high-throughput LLM serving engine</span><span class="m">github.com/vllm-project/vllm</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://huggingface.co/models" target="_blank" rel="noopener"><span class="idx">10</span><span class="body"><span class="t">Hugging Face model hub — 2.5M+ open models</span><span class="m">huggingface.co/models</span></span><span class="ex">&#8599;</span></a>
+        </div>
+      </div>
+
+      <div class="ref-group">
+        <h4>Campus GPU sharing — precedent &amp; research</h4>
+        <div class="ref-list">
+          <a class="ref" href="https://arxiv.org/abs/2507.18928" target="_blank" rel="noopener"><span class="idx">11</span><span class="body"><span class="t">Li, Zhang, Liao, Guo &amp; Tang (2025) — GPUnion: Autonomous GPU Sharing on Campus</span><span class="m">arXiv:2507.18928</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.usenix.org/conference/nsdi23/presentation/wu" target="_blank" rel="noopener"><span class="idx">12</span><span class="body"><span class="t">Wu et al. (2023) — Transparent GPU Sharing in Container Clouds for Deep Learning</span><span class="m">USENIX NSDI 2023</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://arxiv.org/pdf/2401.02452" target="_blank" rel="noopener"><span class="idx">13</span><span class="body"><span class="t">The Compute Divide in Machine Learning: A Threat to Academic Contribution and Scrutiny?</span><span class="m">arXiv:2401.02452</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener"><span class="idx">14</span><span class="body"><span class="t">Stanford HAI — The 2026 AI Index Report</span><span class="m">hai.stanford.edu</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://spectrum.ieee.org/state-of-ai-index-2026" target="_blank" rel="noopener"><span class="idx">15</span><span class="body"><span class="t">IEEE Spectrum — Stanford's AI Index 2026 shows the state of the industry</span><span class="m">spectrum.ieee.org</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://slurm.schedmd.com/documentation.html" target="_blank" rel="noopener"><span class="idx">16</span><span class="body"><span class="t">Slurm Workload Manager — scheduling, fair-share &amp; quotas</span><span class="m">slurm.schedmd.com</span></span><span class="ex">&#8599;</span></a>
+        </div>
+      </div>
+
+      <div class="ref-group">
+        <h4>GPU pricing — multi-vendor</h4>
+        <div class="ref-list">
+          <a class="ref" href="https://www.tomshardware.com/pc-components/gpus/nvidia-doubles-rtx-pro-6000-blackwells-msrp-to-a-staggering-usd16-000-96gb-card-started-pre-orders-below-usd8-000-last-year" target="_blank" rel="noopener"><span class="idx">17</span><span class="body"><span class="t">Tom's Hardware — NVIDIA raises RTX PRO 6000 Blackwell list price to $16,000</span><span class="m">tomshardware.com · Aug 2026</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://wccftech.com/nvidia-96-gb-rtx-pro-6000-blackwell-price-hits-13250-over-50-percent-hike/" target="_blank" rel="noopener"><span class="idx">18</span><span class="body"><span class="t">WCCFtech — 96 GB RTX PRO 6000 Blackwell price hits $13,250</span><span class="m">wccftech.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.igorslab.de/en/nvidia-rtx-pro-6000-blackwell-16000-dollar-96-gb-workstation-gpu-price-increase/" target="_blank" rel="noopener"><span class="idx">19</span><span class="body"><span class="t">Igor's Lab — RTX PRO 6000 Blackwell now costs $16,000</span><span class="m">igorslab.de</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.thundercompute.com/blog/nvidia-rtx-pro-6000-pricing" target="_blank" rel="noopener"><span class="idx">20</span><span class="body"><span class="t">Thunder Compute — RTX PRO 6000 Blackwell pricing tracker (Aug 2026)</span><span class="m">thundercompute.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.bhphotovideo.com/c/product/1753962-REG/pny_vcnrtx6000ada_pb_rtx_6000_ada_generation.html" target="_blank" rel="noopener"><span class="idx">21</span><span class="body"><span class="t">B&amp;H Photo — PNY RTX 6000 Ada 48 GB · $7,499</span><span class="m">bhphotovideo.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.newegg.com/pny-technologies-inc-vcnrtx6000ada-pb-rtx-6000-ada-48gb-graphics-card/p/N82E16814133886" target="_blank" rel="noopener"><span class="idx">22</span><span class="body"><span class="t">Newegg — PNY RTX 6000 Ada 48 GB</span><span class="m">newegg.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.cdw.com/product/pny-nvidia-rtx-pro-6000-graphic-card-96-gb-gddr7-full-height/8326706" target="_blank" rel="noopener"><span class="idx">23</span><span class="body"><span class="t">CDW — PNY RTX PRO 6000 96 GB GDDR7 · $13,412.99</span><span class="m">cdw.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.amazon.com/NVD-RTX-PRO-6000-Blackwell/dp/B0F7Y644FQ" target="_blank" rel="noopener"><span class="idx">24</span><span class="body"><span class="t">Amazon — NVD RTX PRO 6000 Blackwell 96 GB · $11,859.99</span><span class="m">amazon.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.amazon.com/dp/B0GLHLSYPC" target="_blank" rel="noopener"><span class="idx">25</span><span class="body"><span class="t">Amazon — NVIDIA RTX PRO 5000 Blackwell 48 GB · $6,298</span><span class="m">amazon.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.amazon.com/PNY-VCNRTXA6000-PB-NVIDIA-RTX-A6000/dp/B09BDH8VZV" target="_blank" rel="noopener"><span class="idx">26</span><span class="body"><span class="t">Amazon — NVIDIA RTX A6000 48 GB · $5,470</span><span class="m">amazon.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.amazon.com/dp/B0842YFDRF" target="_blank" rel="noopener"><span class="idx">27</span><span class="body"><span class="t">Amazon — Quadro RTX 8000 48 GB · $3,140</span><span class="m">amazon.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.amazon.com/PNY-A100-80GB-Graphics-Card/dp/B0CDMFRGWZ" target="_blank" rel="noopener"><span class="idx">28</span><span class="body"><span class="t">Amazon — PNY NVIDIA A100 80 GB · $16,399</span><span class="m">amazon.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.exxactcorp.com/blog/news/exxact-validates-4x-nvidia-rtx-pro-6000-blackwell-max-q-in-a-workstation" target="_blank" rel="noopener"><span class="idx">29</span><span class="body"><span class="t">Exxact — validated 4&#215; RTX PRO 6000 Blackwell Max-Q workstation</span><span class="m">exxactcorp.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.pugetsystems.com/solutions/scientific-computing-workstations/" target="_blank" rel="noopener"><span class="idx">30</span><span class="body"><span class="t">Puget Systems — scientific computing workstations</span><span class="m">pugetsystems.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.storagereview.com/review/nvidia-rtx-pro-6000-workstation-gpu-review-blackwell-architecture-and-96-gb-for-pro-workflows" target="_blank" rel="noopener"><span class="idx">31</span><span class="body"><span class="t">StorageReview — RTX PRO 6000 Workstation GPU review</span><span class="m">storagereview.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.cdwg.com/" target="_blank" rel="noopener"><span class="idx">32</span><span class="body"><span class="t">CDW-G — education contract pricing portal</span><span class="m">cdwg.com</span></span><span class="ex">&#8599;</span></a>
+        </div>
+      </div>
+
+      <div class="ref-group">
+        <h4>Cloud GPU rates — build vs. rent comparison</h4>
+        <div class="ref-list">
+          <a class="ref" href="https://vast.ai/pricing/gpu/RTX-PRO-6000-WS" target="_blank" rel="noopener"><span class="idx">33</span><span class="body"><span class="t">Vast.ai — RTX PRO 6000 WS rental from $0.67/hr</span><span class="m">vast.ai</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://gpuperhour.com/providers/lambda-labs" target="_blank" rel="noopener"><span class="idx">34</span><span class="body"><span class="t">Lambda Labs GPU pricing — RTX 6000 Ada from $0.69/hr</span><span class="m">gpuperhour.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://gpuperhour.com/providers/runpod" target="_blank" rel="noopener"><span class="idx">35</span><span class="body"><span class="t">RunPod GPU pricing — A100 80 GB $1.39/hr, H100 PCIe $2.89/hr</span><span class="m">gpuperhour.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://getdeploying.com/gpus/nvidia-rtx-pro-6000" target="_blank" rel="noopener"><span class="idx">36</span><span class="body"><span class="t">RTX PRO 6000 cloud pricing across 39+ providers</span><span class="m">getdeploying.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://computeprices.com/providers/runpod" target="_blank" rel="noopener"><span class="idx">37</span><span class="body"><span class="t">ComputePrices — RunPod GPU rate comparison</span><span class="m">computeprices.com</span></span><span class="ex">&#8599;</span></a>
+        </div>
+      </div>
+
+      <div class="ref-group">
+        <h4>Funding, grants &amp; partnership programs</h4>
+        <div class="ref-list">
+          <a class="ref" href="https://www.nvidia.com/en-us/industries/higher-education-research/academic-grant-program/" target="_blank" rel="noopener"><span class="idx">38</span><span class="body"><span class="t">NVIDIA Academic Grant Program for Researchers</span><span class="m">nvidia.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://developer.nvidia.com/higher-education-and-research" target="_blank" rel="noopener"><span class="idx">39</span><span class="body"><span class="t">NVIDIA — Higher Education &amp; Research resources</span><span class="m">developer.nvidia.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://developer.nvidia.com/blog/accelerate-academic-research-and-curriculum-with-the-nvidia-hardware-grant-program" target="_blank" rel="noopener"><span class="idx">40</span><span class="body"><span class="t">NVIDIA Technical Blog — the Hardware Grant Program</span><span class="m">developer.nvidia.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.nvidia.com/en-us/training/educator-programs/university-ambassador-program/" target="_blank" rel="noopener"><span class="idx">41</span><span class="body"><span class="t">NVIDIA DLI University Ambassador Program</span><span class="m">nvidia.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://developer.nvidia.com/teaching-kits" target="_blank" rel="noopener"><span class="idx">42</span><span class="body"><span class="t">NVIDIA DLI Teaching Kits for educators</span><span class="m">developer.nvidia.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.nvidia.com/en-us/startups/" target="_blank" rel="noopener"><span class="idx">43</span><span class="body"><span class="t">NVIDIA Inception — program for AI startups</span><span class="m">nvidia.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://nairrpilot.org/" target="_blank" rel="noopener"><span class="idx">44</span><span class="body"><span class="t">NAIRR Pilot — National AI Research Resource</span><span class="m">nairrpilot.org</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://access-ci.org/" target="_blank" rel="noopener"><span class="idx">45</span><span class="body"><span class="t">NSF ACCESS — national cyberinfrastructure allocations</span><span class="m">access-ci.org</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://polsky.uchicago.edu/2026/04/14/university-of-chicago-announces-partnership-with-ai-research-commons-microsoft-nvidia-to-accelerate-midwest-ai-startups/" target="_blank" rel="noopener"><span class="idx">46</span><span class="body"><span class="t">UChicago Polsky Center &#215; Microsoft &#215; NVIDIA — Midwest AI startup partnership</span><span class="m">polsky.uchicago.edu · Apr 2026</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://grantedai.com/blog/ai-compute-grants-gpu-credits-guide" target="_blank" rel="noopener"><span class="idx">47</span><span class="body"><span class="t">AI compute grants guide — NAIRR, NSF ACCESS, DOE &amp; cloud providers</span><span class="m">grantedai.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.microsoft.com/en-us/startups" target="_blank" rel="noopener"><span class="idx">48</span><span class="body"><span class="t">Microsoft for Startups Founders Hub</span><span class="m">microsoft.com</span></span><span class="ex">&#8599;</span></a>
+        </div>
+      </div>
+
+      <div class="ref-group">
+        <h4>Compute as economy — reporting &amp; commentary</h4>
+        <div class="ref-list">
+          <a class="ref" href="https://www.morganstanley.com/insights/articles/nvidia-jensen-huang-compute-new-economic-engine-tmt-2026" target="_blank" rel="noopener"><span class="idx">49</span><span class="body"><span class="t">Morgan Stanley — Jensen Huang: compute is the new economic engine</span><span class="m">morganstanley.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.linkedin.com/pulse/compute-currency-now-pedro-alves-crwkc/" target="_blank" rel="noopener"><span class="idx">50</span><span class="body"><span class="t">Pedro Alves (CTO, Thoth AI) — "Compute is the currency now"</span><span class="m">linkedin.com</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.axios.com/2026/05/08/ai-economy-currency-how-it-works" target="_blank" rel="noopener"><span class="idx">51</span><span class="body"><span class="t">Axios — Compute is the currency of the AI economy</span><span class="m">axios.com · May 2026</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.linkedin.com/feed/update/urn:li:activity:7471247674357395456/" target="_blank" rel="noopener"><span class="idx">52</span><span class="body"><span class="t">Compute as Infrastructure — why AI, robotics &amp; networked systems need GPU access</span><span class="m">Danish Nadar · LinkedIn</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.iea.org/reports/energy-and-ai/executive-summary" target="_blank" rel="noopener"><span class="idx">53</span><span class="body"><span class="t">International Energy Agency — Energy and AI (executive summary)</span><span class="m">iea.org</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://datacenters.google/operating-sustainably" target="_blank" rel="noopener"><span class="idx">54</span><span class="body"><span class="t">Google Data Centers — operating sustainably</span><span class="m">datacenters.google</span></span><span class="ex">&#8599;</span></a>
+        </div>
+      </div>
+
+      <div class="ref-group">
+        <h4>Illinois Tech — host institution</h4>
+        <div class="ref-list">
+          <a class="ref" href="https://www.iit.edu/smartlab" target="_blank" rel="noopener"><span class="idx">55</span><span class="body"><span class="t">Illinois Tech Smart Tech Lab</span><span class="m">iit.edu/smartlab</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.iit.edu/smartlab/projects-and-research" target="_blank" rel="noopener"><span class="idx">56</span><span class="body"><span class="t">Smart Lab — projects and research</span><span class="m">iit.edu/smartlab</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.iit.edu/directory/people/jeremy-hajek" target="_blank" rel="noopener"><span class="idx">57</span><span class="body"><span class="t">Prof. Jeremy Hajek — Industry Associate Professor &amp; Smart Lab Director</span><span class="m">iit.edu</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.iit.edu/news/illinois-tech-dedicates-new-smart-tech-lab" target="_blank" rel="noopener"><span class="idx">58</span><span class="body"><span class="t">Illinois Tech dedicates new Smart Tech Lab</span><span class="m">iit.edu/news</span></span><span class="ex">&#8599;</span></a>
+          <a class="ref" href="https://www.iit.edu/computing" target="_blank" rel="noopener"><span class="idx">59</span><span class="body"><span class="t">Illinois Tech — College of Computing</span><span class="m">iit.edu/computing</span></span><span class="ex">&#8599;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <a href="#top" class="brand" style="margin-bottom:1.2rem">
+          <svg width="30" height="30" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <rect x="18" y="18" width="64" height="64" rx="8" stroke="#00E5FF" stroke-width="4"/>
+            <rect x="38" y="38" width="24" height="24" rx="3" fill="#E4002B"/>
+            <path d="M50 4v14M50 82v14M4 50h14M82 50h14" stroke="#00E5FF" stroke-width="3.5" stroke-linecap="round" opacity=".8"/>
+          </svg>
+          <span>The Compute Collaborative<small>Illinois Tech</small></span>
+        </a>
+        <p class="dim" style="font-size:.9rem;max-width:44ch">
+          A governed GPU suite in the Smart Lab — used by ML@IIT, Illinois Tech Robotics, ACM, Codify,
+          and IGDA for research prototypes, workshops, hackathons, and student empowerment.
+          Managed by students, for students.
+        </p>
+        <div class="chips" style="margin-top:1.2rem">
+          <span class="chip chip-vt">Smart Lab hosted</span>
+          <span class="chip chip-cy">Student administered</span>
+          <span class="chip chip-rd">Cross-organization</span>
+        </div>
+      </div>
+      <div>
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="#problem">The Purpose</a></li>
+          <li><a href="#proposal">The Proposal</a></li>
+          <li><a href="#architecture">The Architecture</a></li>
+          <li><a href="#workloads">The Potential</a></li>
+          <li><a href="#hardware">The Pipeline</a></li>
+          <li><a href="#economics">The Economics</a></li>
+          <li><a href="#impact">The Impact</a></li>
+          <li><a href="#partners">For Partners</a></li>
+          <li><a href="#roadmap">The Roadmap</a></li>
+          <li><a href="#references">References</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Key links</h5>
+        <ul>
+          <li><a href="https://www.iit.edu/smartlab" target="_blank" rel="noopener">Illinois Tech Smart Lab &#8599;</a></li>
+          <li><a href="https://www.nvidia.com/en-us/industries/higher-education-research/academic-grant-program/" target="_blank" rel="noopener">NVIDIA Academic Grants &#8599;</a></li>
+          <li><a href="https://www.nvidia.com/en-us/startups/" target="_blank" rel="noopener">NVIDIA Inception &#8599;</a></li>
+          <li><a href="https://nairrpilot.org/" target="_blank" rel="noopener">NAIRR Pilot &#8599;</a></li>
+          <li><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener">Stanford AI Index 2026 &#8599;</a></li>
+          <li><a href="https://huggingface.co/models" target="_blank" rel="noopener">Hugging Face &#8599;</a></li>
+          <li><a href="mailto:alittletechforyou2@gmail.com?subject=The%20Compute%20Collaborative">Contact the team</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span>&copy; <span id="year">2026</span> The Compute Collaborative · Illinois Institute of Technology</span>
+      <span>Pricing researched August 2026 · subject to market change</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
