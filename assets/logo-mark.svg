@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="The Compute Collaborative">
+  <title>The Compute Collaborative</title>
+  <!-- solid hexagon, reads at favicon size -->
+  <path d="M120 14 L212 67 L212 173 L120 226 L28 173 L28 67 Z" fill="#E4002B"/>
+  <!-- knocked out C -->
+  <path d="M166 68 L82 68 L82 172 L166 172 L166 142 L116 142 L116 98 L166 98 Z" fill="#04060d"/>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="The Compute Collaborative">
+  <title>The Compute Collaborative</title>
+  <defs>
+    <filter id="ccGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- ===== thick hexagon spars ===== -->
+    <!-- upper diagonals, scarlet -->
+    <path d="M59.8 61.4 L99.4 38.4" stroke="#E4002B" stroke-width="21"/>
+    <path d="M180.2 61.4 L140.6 38.4" stroke="#E4002B" stroke-width="21"/>
+    <!-- lower diagonals, scarlet -->
+    <path d="M59.8 178.6 L99.4 201.6" stroke="#E4002B" stroke-width="21"/>
+    <path d="M180.2 178.6 L140.6 201.6" stroke="#E4002B" stroke-width="21"/>
+    <!-- left and right verticals, steel -->
+    <path d="M39 90 L39 150" stroke="#8598B0" stroke-width="21"/>
+    <path d="M201 90 L201 150" stroke="#8598B0" stroke-width="21"/>
+
+    <!-- ===== circuit traces into the die ===== -->
+    <path d="M120 42 L120 74" stroke="#E4002B" stroke-width="7"/>
+    <path d="M120 198 L120 166" stroke="#E4002B" stroke-width="7"/>
+    <path d="M52 84 L76 108 L76 118" stroke="#EAF2FF" stroke-width="7"/>
+    <path d="M188 84 L164 108 L164 118" stroke="#EAF2FF" stroke-width="7"/>
+    <path d="M52 156 L76 132 L76 122" stroke="#8598B0" stroke-width="7"/>
+    <path d="M188 156 L164 132 L164 122" stroke="#8598B0" stroke-width="7"/>
+
+    <!-- ===== hexagon nodes ===== -->
+    <circle cx="120" cy="26"  r="13" stroke="#E4002B" stroke-width="9"/>
+    <circle cx="120" cy="214" r="13" stroke="#E4002B" stroke-width="9"/>
+    <circle cx="39"  cy="73"  r="13" stroke="#EAF2FF" stroke-width="9"/>
+    <circle cx="201" cy="73"  r="13" stroke="#EAF2FF" stroke-width="9"/>
+    <circle cx="39"  cy="167" r="13" stroke="#8598B0" stroke-width="9"/>
+    <circle cx="201" cy="167" r="13" stroke="#8598B0" stroke-width="9"/>
+  </g>
+
+  <!-- ===== processor die ===== -->
+  <g fill="#EAF2FF">
+    <!-- pins, top -->
+    <rect x="90"  y="66" width="7" height="16" rx="1.5"/>
+    <rect x="104" y="66" width="7" height="16" rx="1.5"/>
+    <rect x="118" y="66" width="7" height="16" rx="1.5"/>
+    <rect x="132" y="66" width="7" height="16" rx="1.5"/>
+    <rect x="146" y="66" width="7" height="16" rx="1.5"/>
+    <!-- pins, bottom -->
+    <rect x="90"  y="158" width="7" height="16" rx="1.5"/>
+    <rect x="104" y="158" width="7" height="16" rx="1.5"/>
+    <rect x="118" y="158" width="7" height="16" rx="1.5"/>
+    <rect x="132" y="158" width="7" height="16" rx="1.5"/>
+    <rect x="146" y="158" width="7" height="16" rx="1.5"/>
+    <!-- pins, left -->
+    <rect x="66" y="90"  width="16" height="7" rx="1.5"/>
+    <rect x="66" y="104" width="16" height="7" rx="1.5"/>
+    <rect x="66" y="118" width="16" height="7" rx="1.5"/>
+    <rect x="66" y="132" width="16" height="7" rx="1.5"/>
+    <rect x="66" y="146" width="16" height="7" rx="1.5"/>
+    <!-- pins, right -->
+    <rect x="158" y="90"  width="16" height="7" rx="1.5"/>
+    <rect x="158" y="104" width="16" height="7" rx="1.5"/>
+    <rect x="158" y="118" width="16" height="7" rx="1.5"/>
+    <rect x="158" y="132" width="16" height="7" rx="1.5"/>
+    <rect x="158" y="146" width="16" height="7" rx="1.5"/>
+  </g>
+
+  <!-- die body -->
+  <rect x="80" y="80" width="80" height="80" rx="4" fill="none" stroke="#EAF2FF" stroke-width="11"/>
+
+  <!-- the C -->
+  <path d="M146 96 L100 96 L100 144 L146 144 L146 132 L112 132 L112 108 L146 108 Z" fill="#E4002B"/>
+</svg>

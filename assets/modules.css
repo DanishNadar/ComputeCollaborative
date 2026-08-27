@@ -1,5 +1,5 @@
 /* ============================================================
-   modules.css — due diligence, spec systems, governance,
+   modules.css, due diligence, spec systems, governance,
    cost builder, HUD & futuristic effects
    ============================================================ */
 
@@ -12,7 +12,7 @@
   mask-image:radial-gradient(ellipse 70% 60% at 50% 50%,#000,transparent 72%);
 }
 
-/* angular clipped panel — "spec plate" */
+/* angular clipped panel, spec plate */
 .plate{
   position:relative;
   background:linear-gradient(155deg,rgba(13,22,38,.95),rgba(6,10,20,.9));
@@ -278,3 +278,160 @@
 .note-box b{color:#fff}
 .note-box.warn{border-color:rgba(255,196,0,.4);background:rgba(255,196,0,.05)}
 .note-box.warn b{color:var(--amber)}
+
+/* ================= COST CITATION TRIGGER ================= */
+.cost-cite{
+  display:inline-flex;align-items:center;gap:.32rem;cursor:pointer;
+  border:0;background:none;padding:0;font:inherit;color:inherit;
+  border-bottom:1px dashed rgba(0,229,255,.55);transition:.22s;
+}
+.cost-cite:hover{border-bottom-color:var(--cyan);color:var(--cyan)}
+.cost-cite .ci{
+  display:inline-grid;place-items:center;width:15px;height:15px;border-radius:50%;
+  border:1px solid rgba(0,229,255,.55);font-family:var(--mono);font-size:.56rem;
+  color:var(--cyan);flex-shrink:0;line-height:1;font-weight:700;
+  transition:.22s;
+}
+.cost-cite:hover .ci{background:var(--cyan);color:#04060d;box-shadow:0 0 12px rgba(0,229,255,.6)}
+.est-tag{
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--amber);border:1px solid rgba(255,196,0,.4);background:rgba(255,196,0,.08);
+  padding:.1rem .38rem;border-radius:3px;vertical-align:middle;margin-left:.35rem;white-space:nowrap;
+}
+.ver-tag{
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mint);border:1px solid rgba(61,255,192,.4);background:rgba(61,255,192,.08);
+  padding:.1rem .38rem;border-radius:3px;vertical-align:middle;margin-left:.35rem;white-space:nowrap;
+}
+
+/* ================= MODAL ================= */
+.mdl-scrim{
+  position:fixed;inset:0;z-index:10000;display:none;
+  background:rgba(2,4,10,.82);backdrop-filter:blur(10px) saturate(120%);
+  padding:clamp(1rem,4vw,3rem);overflow-y:auto;
+}
+.mdl-scrim.on{display:grid;place-items:start center;animation:fadeIn .28s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.mdl{
+  width:min(100%,760px);margin:auto 0;position:relative;
+  background:linear-gradient(158deg,rgba(14,22,40,.99),rgba(6,10,20,.99));
+  border:1px solid rgba(0,229,255,.34);border-radius:16px;
+  box-shadow:0 40px 110px -30px rgba(0,0,0,.9),0 0 70px -30px rgba(0,229,255,.5);
+  animation:mdlIn .34s cubic-bezier(.2,.9,.25,1);overflow:hidden;
+}
+@keyframes mdlIn{from{opacity:0;transform:translateY(26px) scale(.975)}to{opacity:1;transform:none}}
+.mdl-top{
+  padding:1.5rem 1.7rem 1.2rem;border-bottom:1px solid var(--line);position:relative;
+  background:linear-gradient(120deg,rgba(0,229,255,.07),transparent 60%);
+}
+.mdl-top .eyebrow{
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--cyan);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem;
+}
+.mdl-top h3{font-size:clamp(1.2rem,2.6vw,1.5rem);color:#fff;margin-bottom:.4rem;padding-right:2.5rem}
+.mdl-top .fig{font-family:var(--disp);font-size:clamp(1.7rem,4vw,2.3rem);font-weight:700;color:var(--mint);letter-spacing:-.02em;line-height:1}
+.mdl-top .figsub{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:.45rem}
+.mdl-x{
+  position:absolute;top:1.2rem;right:1.2rem;width:32px;height:32px;border-radius:8px;
+  border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink-2);
+  cursor:pointer;display:grid;place-items:center;transition:.22s;
+}
+.mdl-x:hover{background:var(--scarlet);border-color:var(--scarlet);color:#fff;transform:rotate(90deg)}
+.mdl-body{padding:1.5rem 1.7rem 1.8rem;max-height:62vh;overflow-y:auto}
+.mdl-body::-webkit-scrollbar{width:7px}
+.mdl-body::-webkit-scrollbar-thumb{background:rgba(0,229,255,.3);border-radius:4px}
+.mdl-body p{font-size:.93rem;color:var(--ink-2);margin:0 0 1rem}
+.mdl-body p b{color:#fff}
+.mdl-sec{
+  font-family:var(--mono);font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cyan);margin:1.6rem 0 .85rem;padding-bottom:.5rem;border-bottom:1px solid var(--line);
+}
+.mdl-sec:first-child{margin-top:0}
+
+/* line item breakdown inside modal */
+.li-tbl{width:100%;border-collapse:collapse;font-size:.87rem}
+.li-tbl td{padding:.7rem .3rem;border-bottom:1px solid rgba(120,160,220,.1);vertical-align:top;color:var(--ink-2)}
+.li-tbl tr:last-child td{border-bottom:0}
+.li-tbl .li-n{color:#fff}
+.li-tbl .li-n em{display:block;font-style:normal;font-family:var(--mono);font-size:.66rem;color:var(--ink-3);margin-top:.2rem}
+.li-tbl .li-p{font-family:var(--mono);color:var(--mint);text-align:right;white-space:nowrap;padding-left:1rem}
+.li-tbl .li-p.zero{color:var(--volt)}
+.li-tbl tr.li-sum td{border-top:1px solid var(--line-hot);border-bottom:0;padding-top:.9rem;font-weight:600}
+.li-tbl tr.li-sum .li-n{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+.li-tbl tr.li-sum .li-p{font-family:var(--disp);font-size:1.25rem;color:#fff}
+
+/* source list inside modal */
+.mdl-src{display:flex;flex-direction:column;gap:.4rem}
+.mdl-src a{
+  display:flex;gap:.7rem;align-items:flex-start;padding:.7rem .85rem;border-radius:8px;
+  background:rgba(255,255,255,.02);border:1px solid transparent;transition:.22s;
+}
+.mdl-src a:hover{background:rgba(0,229,255,.06);border-color:rgba(0,229,255,.25)}
+.mdl-src .sn{font-family:var(--mono);font-size:.64rem;color:var(--ink-3);flex-shrink:0;padding-top:.15rem;min-width:1.5rem}
+.mdl-src .sb{flex:1;min-width:0}
+.mdl-src .stt{font-size:.86rem;color:var(--ink);line-height:1.4}
+.mdl-src a:hover .stt{color:#fff}
+.mdl-src .sm{font-family:var(--mono);font-size:.63rem;color:var(--ink-3);margin-top:.2rem;word-break:break-word}
+.mdl-src .sx{flex-shrink:0;color:var(--ink-3);padding-top:.2rem}
+.mdl-src a:hover .sx{color:var(--cyan)}
+
+/* assumption pills */
+.asm{display:flex;flex-wrap:wrap;gap:.5rem}
+.asm span{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;padding:.4rem .7rem;border-radius:6px;
+  background:rgba(255,255,255,.03);border:1px solid var(--line);color:var(--ink-2);
+}
+.asm span b{color:var(--cyan);font-weight:500}
+body.mdl-open{overflow:hidden}
+
+/* ================= BRAND LOGO ================= */
+.brand img{display:block}
+.brand-mark{width:34px;height:34px}
+
+/* nav + footer mark, tight red halo */
+.brand .brand-mark{
+  filter:drop-shadow(0 0 6px rgba(228,0,43,.95)) drop-shadow(0 0 16px rgba(228,0,43,.55));
+  transition:filter .35s,transform .35s;
+}
+.brand:hover .brand-mark{
+  filter:drop-shadow(0 0 9px rgba(255,77,104,1)) drop-shadow(0 0 26px rgba(228,0,43,.8));
+  transform:scale(1.06);
+}
+
+/* hero lockup, full circuit logo */
+.hero-logo{
+  position:relative;display:grid;place-items:center;margin-bottom:1.4rem;
+}
+.hero-logo img{
+  width:min(210px,42vw);height:auto;position:relative;z-index:2;
+  filter:drop-shadow(0 0 20px rgba(228,0,43,.9))
+         drop-shadow(0 0 48px rgba(228,0,43,.55))
+         drop-shadow(0 0 96px rgba(200,16,46,.35));
+  animation:logoPulse 5.5s ease-in-out infinite;
+}
+@keyframes logoPulse{
+  0%,100%{filter:drop-shadow(0 0 20px rgba(228,0,43,.9)) drop-shadow(0 0 48px rgba(228,0,43,.55)) drop-shadow(0 0 96px rgba(200,16,46,.35))}
+  50%{filter:drop-shadow(0 0 26px rgba(255,77,104,1)) drop-shadow(0 0 64px rgba(228,0,43,.72)) drop-shadow(0 0 120px rgba(200,16,46,.5))}
+}
+.hero-logo::before{
+  content:'';position:absolute;width:min(340px,66vw);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(228,0,43,.30),rgba(200,16,46,.12) 42%,transparent 70%);
+  filter:blur(26px);z-index:1;animation:breathe 6s ease-in-out infinite;
+}
+/* rotating hex halo behind the hero logo */
+.hero-logo::after{
+  content:'';position:absolute;width:min(300px,60vw);aspect-ratio:1;z-index:0;
+  border:1px dashed rgba(228,0,43,.30);border-radius:50%;
+  animation:spin 40s linear infinite;
+}
+
+/* oversized watermark behind the hero */
+.hero-watermark{
+  position:absolute;right:-8%;top:50%;transform:translateY(-50%);
+  width:min(760px,88vw);opacity:.045;pointer-events:none;z-index:0;
+  filter:drop-shadow(0 0 60px rgba(228,0,43,.6));
+}
+@media(max-width:1000px){.hero-watermark{opacity:.03;right:-25%}}
+
+/* footer mark sizing */
+.ft .brand-mark{width:30px;height:30px}

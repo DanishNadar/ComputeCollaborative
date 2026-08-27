@@ -1,5 +1,5 @@
 /* ============================================================
-   sections.css — hero, modules, interactive components
+   sections.css, hero, modules, interactive components
    ============================================================ */
 
 /* ================= HERO ================= */
@@ -10,8 +10,8 @@
 .hero-badge{
   display:inline-flex;align-items:center;gap:.6rem;font-family:var(--mono);
   font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);
-  border:1px solid rgba(0,229,255,.32);border-radius:999px;padding:.45rem 1rem;margin-bottom:1.6rem;
-  background:rgba(0,229,255,.05);
+  border:1px solid rgba(228,0,43,.42);border-radius:999px;padding:.45rem 1rem;margin-bottom:1.6rem;
+  background:rgba(228,0,43,.08);color:var(--scarlet-soft);box-shadow:0 0 24px -8px rgba(228,0,43,.7);
 }
 .pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--volt);box-shadow:0 0 10px var(--volt);animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.75)}}
@@ -22,9 +22,9 @@
 .hero h1 .line1{display:block;font-size:.36em;letter-spacing:.16em;font-weight:600;color:var(--scarlet-soft);text-transform:uppercase;margin-bottom:.7rem;text-shadow:0 0 26px rgba(228,0,43,.6)}
 .hero h1 .big{
   display:block;
-  background:linear-gradient(96deg,#fff 0%,#dbe9ff 32%,var(--cyan) 62%,#7ce0ff 100%);
+  background:linear-gradient(96deg,#fff 0%,#ffdbe2 30%,var(--scarlet) 64%,#ff7a8f 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 0 34px rgba(0,229,255,.28));
+  filter:drop-shadow(0 0 38px rgba(228,0,43,.55));
 }
 .hero-lede{font-size:clamp(1.02rem,1.75vw,1.22rem);color:var(--ink-2);max-width:60ch;margin-bottom:1.4rem}
 .hero-lede b{color:#fff}
@@ -288,12 +288,12 @@ input[type=range]::-moz-range-thumb{
 /* ================= BIG CTA ================= */
 .cta{
   padding:clamp(2.5rem,6vw,4.5rem) clamp(1.5rem,5vw,3.5rem);border-radius:20px;text-align:center;position:relative;overflow:hidden;
-  background:linear-gradient(150deg,rgba(228,0,43,.13),rgba(8,12,22,.9) 42%,rgba(0,229,255,.11));
-  border:1px solid rgba(0,229,255,.26);
+  background:linear-gradient(150deg,rgba(228,0,43,.22),rgba(8,6,12,.92) 46%,rgba(200,16,46,.18));
+  border:1px solid rgba(228,0,43,.42);box-shadow:0 0 70px -30px rgba(228,0,43,.8);
 }
 .cta::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(40rem 20rem at 50% 0%,rgba(0,229,255,.14),transparent 70%);
+  background:radial-gradient(40rem 20rem at 50% 0%,rgba(228,0,43,.22),transparent 70%);
   pointer-events:none;
 }
 .cta h2{font-size:clamp(1.9rem,5vw,3.1rem);font-weight:700;margin-bottom:1rem;letter-spacing:-.03em;position:relative}
